@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA-1 · Evaluación crítica de textos generados · IN3143</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div class="stage">
+
+<!-- 1 · Portada -->
+<section class="slide cover" data-block="">
+  <p class="inst">Universidad de Chile · Departamento de Ingeniería Industrial</p>
+  <p class="curso">IN3143 · Escritura académica para las ingenierías y las ciencias</p>
+  <h1>Capacidades y límites de los modelos de lenguaje</h1>
+  <p class="fecha">Sesión IA-1 · 20 de agosto de 2026<br>Prof. Rubén Daza</p>
+  <div class="marcas">
+    <span class="capa f">factualidad</span>
+    <span class="capa s">fuentes</span>
+    <span class="capa p">progresión</span>
+    <span class="capa g">genericidad</span>
+  </div>
+</section>
+
+<!-- 2 · Competencia del día -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">Hoy</p>
+  <p class="statement">Aprender a clasificar las fallas de un texto escrito por IA: <mark class="f">factualidad</mark>, <mark class="s">fuentes</mark>, <mark class="p">progresión</mark>, <mark class="g">genericidad</mark>.</p>
+  <p class="body" style="margin-top:calc(var(--u)*30)">Vas a practicar con dos textos generados por un modelo y publicados tal como salieron: un ensayo y la discusión de un informe de laboratorio.</p>
+</section>
+
+<!-- 3 · Mapa de la parte de IA -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">Las cuatro sesiones de IA</p>
+  <table>
+    <tr><th>Sesión</th><th>Qué aprendes</th><th>Cuenta para</th></tr>
+    <tr><td class="mono">IA-1 · hoy</td><td>Detectar y clasificar fallas de un texto generado<br><span class="capa" style="color:var(--ink-3)">discernment</span></td><td>Declaración del borrador</td></tr>
+    <tr><td class="mono">IA-2</td><td>Decidir qué le delegas al modelo y qué haces tú<br><span class="capa" style="color:var(--ink-3)">delegation</span></td><td>Planificación (S5) · declaración 1 · 3%</td></tr>
+    <tr><td class="mono">IA-3</td><td>Especificar el encargo: criterios para dirigir y auditar<br><span class="capa" style="color:var(--ink-3)">description</span></td><td>Borrador (S7) · declaración 2 · 5%</td></tr>
+    <tr><td class="mono">IA-4</td><td>Aceptar, corregir o rechazar lo que el modelo propone<br><span class="capa" style="color:var(--ink-3)">diligence</span></td><td>Texto final (S14) · declaración 3 · 7%</td></tr>
+  </table>
+  <p class="small" style="margin-top:calc(var(--u)*22)">Las competencias en inglés son las 4D del marco AI Fluency (Anthropic, 2025). El trabajo en clase de estas cuatro sesiones suma además el 10% de participación.</p>
+</section>
+
+<!-- 4 · La regla del ensayo -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">La regla del ensayo</p>
+  <h2>El borrador lo escribes tú.</h2>
+  <p class="body">El ensayo evalúa tu escritura. Por eso la primera versión completa, la que entregas la semana 7, sale de tu redacción, sin párrafos generados.</p>
+  <ul class="plain body" style="margin-top:calc(var(--u)*26)">
+    <li><b>Antes de escribir</b>, IA sí: explorar el tema, mapear evidencia, poner a prueba tu outline.</li>
+    <li><b>Después de escribir</b>, IA sí, sobre tu borrador: diagnosticar problemas, verificar citas, proponer revisiones.</li>
+    <li><b>Cada uso queda anotado</b> en una declaración de una página que entregas con cada hito. El formato es el del Instructivo N° 17/2026 de la U. de Chile, el mismo de la memoria de título.</li>
+  </ul>
+</section>
+
+<!-- 5 · Cómo trabajamos -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">Cómo trabajamos en estas sesiones</p>
+  <div class="cols two" style="grid-template-columns: 1.5fr 1fr; align-items:center; margin-bottom:calc(var(--u)*34)">
+    <ul class="plain body">
+      <li>Bloques cortos de trabajo; cada uno termina con algo escrito.</li>
+      <li>Lo escrito va a una planilla compartida: una fila por persona, con nombre.</li>
+      <li>Al cierre de cada bloque miramos algunas filas en pantalla. Primero quien se ofrezca; si nadie, elijo yo.</li>
+      <li>La asistencia de hoy sale de la planilla: fila completa, presente.</li>
+    </ul>
+    <div style="text-align:center">
+      <img src="qr-planilla.png" alt="QR de la planilla" style="width:calc(var(--u)*190); border:1px solid var(--line); padding:calc(var(--u)*6)" onerror="this.outerHTML='&lt;div class=&quot;qrfallback&quot; style=&quot;width:calc(var(--u)*190); margin:0 auto&quot;&gt;qr-planilla.png&lt;br&gt;(QR del Sheet)&lt;/div&gt;'">
+      <p class="small" style="margin-top:calc(var(--u)*10)">link también en U-Cursos</p>
+    </div>
+  </div>
+  <table class="sheet">
+    <tr><th style="width:14%">nombre</th><th style="width:22%">falla 1</th><th style="width:15%">falla 2</th><th style="width:15%">falla 3</th><th style="width:19%">par: la más discutida</th><th style="width:15%">exit ticket</th></tr>
+    <tr><td>tu nombre →</td><td>capa N: "cita" — por qué</td><td></td><td></td><td></td><td></td></tr>
+  </table>
+</section>
+
+<!-- 6 · Encuesta -->
+<section class="slide" data-block="Encuesta">
+  <p class="eyebrow">Encuesta <span class="mins">3 min</span></p>
+  <div class="qrwrap">
+    <img src="qr-encuesta.png" alt="QR de la encuesta" onerror="this.outerHTML='&lt;div class=&quot;qrfallback&quot;&gt;qr-encuesta.png&lt;br&gt;(pegar QR del Form aquí)&lt;/div&gt;'">
+    <div>
+      <p class="body"><b>Ocho preguntas:</b> qué herramientas de IA usas y con qué tipo de cuenta.</p>
+      <p class="body" style="margin-top:calc(var(--u)*16)">Con esto sabemos con qué herramientas y cuentas llega el curso, y ajustamos las guías y actividades a ese acceso.</p>
+      <p class="small" style="margin-top:calc(var(--u)*20)">No influye en ninguna nota. El link queda también en U-Cursos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Producto, modelo, herramientas -->
+<section class="slide" data-block="Panorama 2026">
+  <p class="eyebrow">Panorama 2026 · vocabulario</p>
+  <h2>«ChatGPT» son tres cosas distintas</h2>
+  <table>
+    <tr><td style="width:22%"><b>El modelo</b></td><td>El motor que genera el texto: GPT-5.6, Claude Sonnet 5, Gemini 3.1. Define la capacidad: qué tan bien razona, cuánto inventa.</td></tr>
+    <tr><td><b>El producto</b></td><td>La aplicación donde conversas: ChatGPT, Claude, Gemini. Suma memoria, archivos, búsqueda.</td></tr>
+    <tr><td><b>El arnés</b></td><td>Las herramientas que el producto le presta al modelo: buscar en la web, leer tus archivos, ejecutar código.</td></tr>
+  </table>
+  <p class="small" style="margin-top:calc(var(--u)*24)">Dos personas «usando ChatGPT» pueden estar usando motores muy distintos. El selector de modelo importa.</p>
+</section>
+
+<!-- 8 · Razonamiento -->
+<section class="slide" data-block="Panorama 2026">
+  <p class="eyebrow">Panorama 2026 · los modelos</p>
+  <h2>Los modelos ahora razonan antes de responder</h2>
+  <ul class="plain body">
+    <li><b>Modelo de razonamiento:</b> trabaja el problema por pasos internos antes de escribir la respuesta.</li>
+    <li><b>Esfuerzo:</b> en varios productos eliges entre respuesta rápida y razonamiento largo. Más esfuerzo rinde en problemas difíciles; en lo simple solo demora.</li>
+    <li><b>Modelo de frontera:</b> el más capaz de cada empresa. Todas venden además versiones rápidas y baratas.</li>
+  </ul>
+  <p class="small" style="margin-top:calc(var(--u)*24)">Regla práctica: tarea difícil o ambigua → frontera con razonamiento. Tarea mecánica → el modelo rápido.</p>
+</section>
+
+<!-- 9 · Contexto, archivos, proyectos -->
+<section class="slide" data-block="Panorama 2026">
+  <p class="eyebrow">Panorama 2026 · el material de trabajo</p>
+  <h2>Tu material entra completo a la conversación</h2>
+  <div class="cols two" style="grid-template-columns: 1.2fr 1fr; align-items:center">
+    <ul class="plain body">
+      <li><b>Ventana de contexto:</b> lo que el modelo tiene presente a la vez.</li>
+      <li><b>Archivos:</b> subes PDF, datos o borradores.</li>
+      <li><b>Proyectos:</b> conservan instrucciones y archivos entre conversaciones. Tu ensayo va a vivir en uno.</li>
+      <li><b>Investigación profunda:</b> el producto lee decenas de fuentes y arma un informe con citas — que igual se verifica.</li>
+    </ul>
+    <svg viewBox="0 0 380 330" style="width:100%" role="img" aria-label="Diagrama de la ventana de contexto">
+      <rect x="6" y="26" width="368" height="252" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
+      <text x="20" y="16" font-family="var(--mono)" font-size="15" fill="var(--ink-2)" letter-spacing="1">VENTANA DE CONTEXTO</text>
+      <g font-family="var(--sans)" font-size="17" fill="var(--ink)">
+        <rect x="26" y="46" width="328" height="40" fill="#f4f4f1" stroke="var(--line)"/>
+        <text x="42" y="72">instrucciones de tu proyecto</text>
+        <rect x="26" y="96" width="328" height="40" fill="#f4f4f1" stroke="var(--line)"/>
+        <text x="42" y="122">tu ensayo (el borrador completo)</text>
+        <rect x="26" y="146" width="328" height="40" fill="#f4f4f1" stroke="var(--line)"/>
+        <text x="42" y="172">la rúbrica del curso</text>
+        <rect x="26" y="196" width="328" height="40" fill="#f4f4f1" stroke="var(--line)"/>
+        <text x="42" y="222">tus fuentes (PDF)</text>
+        <text x="42" y="262" fill="var(--ink-3)">+ la conversación hasta aquí</text>
+      </g>
+      <text x="20" y="312" font-family="var(--sans)" font-size="17" fill="var(--ink-2)">el modelo responde mirando todo esto a la vez</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 10 · OpenAI -->
+<section class="slide" data-block="La oferta">
+  <p class="eyebrow">La oferta · OpenAI</p>
+  <div class="cols two" style="grid-template-columns: 1.15fr 1fr; align-items:center">
+    <div>
+      <ul class="plain body">
+        <li><b>ChatGPT</b> — chat con archivos, proyectos e investigación profunda.</li>
+        <li><b>Codex</b> — agente de programación: trabaja sobre carpetas y código.</li>
+        <li><b>GPTs personalizados</b> — asistentes preconfigurados que alguien arma y comparte por link.</li>
+        <li><b>Modelos:</b> familia GPT-5.6 — Sol (frontera) · Terra · Luna (rápido).</li>
+        <li><b>Cuenta gratis:</b> mensajes de texto sin tope (usa Luna); archivos e imágenes con límite.</li>
+      </ul>
+    </div>
+    <div class="shot" style="height:calc(var(--u)*400)">
+      <img src="shot-openai.png" alt="ChatGPT" onerror="this.outerHTML='&lt;div class=&quot;shotfallback&quot;&gt;shot-openai.png&lt;br&gt;(captura de ChatGPT con el selector de modelo visible)&lt;/div&gt;'">
+    </div>
+  </div>
+</section>
+
+<!-- 11 · Anthropic -->
+<section class="slide" data-block="La oferta">
+  <p class="eyebrow">La oferta · Anthropic</p>
+  <div class="cols two" style="grid-template-columns: 1.15fr 1fr; align-items:center">
+    <div>
+      <ul class="plain body">
+        <li><b>Claude</b> — chat con archivos, proyectos e investigación profunda.</li>
+        <li><b>Claude Code</b> — agente en la terminal o app: trabaja sobre carpetas completas de archivos (planes pagados).</li>
+        <li><b>Projects y Skills</b> — instrucciones y archivos que empaquetas una vez y reutilizas en cada conversación.</li>
+        <li><b>Modelos:</b> Fable 5 (frontera) · Opus 5 · Sonnet 5 · Haiku 4.5 (rápido).</li>
+        <li><b>Cuenta gratis:</b> usa Sonnet 5, con tope de mensajes; incluye archivos y búsqueda.</li>
+      </ul>
+    </div>
+    <div class="shot" style="height:calc(var(--u)*400)">
+      <img src="shot-anthropic.png" alt="Claude" onerror="this.outerHTML='&lt;div class=&quot;shotfallback&quot;&gt;shot-anthropic.png&lt;br&gt;(captura de Claude con el selector de modelo visible)&lt;/div&gt;'">
+    </div>
+  </div>
+</section>
+
+<!-- 12 · Google -->
+<section class="slide" data-block="La oferta">
+  <p class="eyebrow">La oferta · Google</p>
+  <div class="cols two" style="grid-template-columns: 1.15fr 1fr; align-items:center">
+    <div>
+      <ul class="plain body">
+        <li><b>Gemini</b> — chat con archivos e investigación profunda (esta, pagada).</li>
+        <li><b>NotebookLM</b> — trabaja sobre tus documentos: preguntas, resúmenes, mapas.</li>
+        <li><b>Gems</b> — versiones de Gemini con instrucciones fijas.</li>
+        <li><b>Modelos:</b> Gemini 3.1 Pro (frontera) · 3.6 Flash (rápido).</li>
+        <li><b>Cuenta personal gratis:</b> NotebookLM completo; Gemini con el modelo rápido y tope en el frontera.</li>
+      </ul>
+      <p class="small" style="margin-top:calc(var(--u)*16)">La encuesta pregunta si tu cuenta U. de Chile trae Gemini habilitado.</p>
+    </div>
+    <div class="shot" style="height:calc(var(--u)*400)">
+      <img src="shot-google.png" alt="Gemini y NotebookLM" onerror="this.outerHTML='&lt;div class=&quot;shotfallback&quot;&gt;shot-google.png&lt;br&gt;(captura de Gemini o NotebookLM)&lt;/div&gt;'">
+    </div>
+  </div>
+</section>
+
+<!-- 13 · Personalización -->
+<section class="slide" data-block="La oferta">
+  <p class="eyebrow">La oferta · personalización</p>
+  <h2>Asistentes preconfigurados</h2>
+  <p class="body">En los tres productos puedes empaquetar instrucciones y archivos en un asistente que se reutiliza y se comparte:</p>
+  <table style="margin-top:calc(var(--u)*10)">
+    <tr><td style="width:34%"><b>GPT personalizado</b> <span class="mono" style="color:var(--ink-3)">ChatGPT</span></td><td>se comparte por link; las cuentas gratis pueden usarlo</td></tr>
+    <tr><td><b>Gem</b> <span class="mono" style="color:var(--ink-3)">Gemini</span></td><td>un Gemini con instrucciones fijas que alguien definió</td></tr>
+    <tr><td><b>Project + Skills</b> <span class="mono" style="color:var(--ink-3)">Claude</span></td><td>instrucciones y archivos que cargas una vez para tu propio uso</td></tr>
+  </table>
+  <p class="body" style="margin-top:calc(var(--u)*26)">En IA-2 vas a recibir uno armado para este curso: un evaluador cargado con la rúbrica del ensayo.</p>
+</section>
+
+<!-- 14 · Prompting hoy -->
+<section class="slide" data-block="Panorama 2026">
+  <p class="eyebrow">Panorama 2026 · pedirle cosas a un modelo</p>
+  <div class="cols two">
+    <div class="panel">
+      <h3>Ya no mejora las respuestas</h3>
+      <ul class="plain">
+        <li>«Actúa como un experto en...»</li>
+        <li>«Pensemos paso a paso»</li>
+        <li>Ejemplos inventados para tareas simples</li>
+      </ul>
+      <p class="small" style="margin-top:calc(var(--u)*14)">Por qué: el modelo ya razona por pasos y ya adopta el rol que la tarea pide, sin que se lo digan. Medido en 2026 (Wharton): sin efecto en la calidad.</p>
+    </div>
+    <div class="panel">
+      <h3>Sigue haciendo la diferencia</h3>
+      <ul class="plain">
+        <li>Decir para qué es el texto y quién lo lee</li>
+        <li>Fijar estructura y extensión</li>
+        <li>Decir qué cuenta como buen resultado</li>
+      </ul>
+      <p class="small" style="margin-top:calc(var(--u)*14)">Especificar el encargo es la competencia de la sesión IA-3.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · Configuraciones -->
+<section class="slide" data-block="Reglas de uso">
+  <p class="eyebrow">Las tres configuraciones del curso</p>
+  <table>
+    <tr><th>Configuración</th><th>Dónde vive tu proyecto</th><th>Cuenta gratuita</th></tr>
+    <tr><td><b>Google</b></td><td>Notebook en NotebookLM</td><td>Cubre el curso completo</td></tr>
+    <tr><td><b>ChatGPT</b></td><td>Proyecto en ChatGPT</td><td>Cubre el curso, con tope diario</td></tr>
+    <tr><td><b>Claude</b></td><td>Proyecto en Claude</td><td>Cubre el curso, con tope diario</td></tr>
+  </table>
+  <p class="body" style="margin-top:calc(var(--u)*26)">Las tres cubren el curso en versión gratuita. <b>Eliges una y la mantienes el semestre</b>: tu proyecto va acumulando el material del ensayo. Las tres guías de instalación quedan en U-Cursos.</p>
+</section>
+
+<!-- 16 · Privacidad -->
+<section class="slide" data-block="Reglas de uso">
+  <p class="eyebrow">Qué se sube y qué no</p>
+  <div class="cols two">
+    <div class="panel">
+      <h3>Súbelo a tu proyecto</h3>
+      <ul class="plain">
+        <li>Tu ensayo, en todas sus versiones</li>
+        <li>Tus fuentes públicas: papers, informes, datos abiertos</li>
+        <li>El programa del curso y la rúbrica</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>No lo subas</h3>
+      <ul class="plain">
+        <li>Trabajos de compañeros</li>
+        <li>Datos personales de terceros</li>
+        <li>Documentos internos de una empresa o práctica</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small" style="margin-top:calc(var(--u)*28)">Usar IA en el curso está permitido y se declara: Instructivo N° 17/2026.</p>
+</section>
+
+<!-- 17 · Lectura -->
+<section class="slide" data-block="Lectura">
+  <p class="eyebrow">El ensayo <span class="mins">10 min</span></p>
+  <p class="body"><b>«Automatización y empleo: una relación compleja».</b> Se lo pedimos a Gemini 3.5 Flash como lo pediría un estudiante apurado: 11 mensajes, sin verificar nada. Está publicado tal cual salió.</p>
+  <p class="body" style="margin-top:calc(var(--u)*20)"><b>Tu tarea:</b> léelo completo y anota todo lo que te haga dudar — una cifra, una cita, un salto del argumento, una frase que no dice nada. Todavía no clasifiques: junta sospechas.</p>
+  <span class="url">rubendaza.github.io/in3143-ia/ensayo-ejemplo/</span>
+</section>
+
+<!-- 18 · Las cuatro capas -->
+<section class="slide" data-block="Taxonomía">
+  <p class="eyebrow">Las cuatro capas de fallas</p>
+  <div class="cols four">
+    <div class="panel f">
+      <span class="capa f">capa 1 · factualidad</span>
+      <p class="body">¿Los hechos y las cifras son ciertos?</p>
+    </div>
+    <div class="panel s">
+      <span class="capa s">capa 2 · fuentes</span>
+      <p class="body">¿Las referencias existen, y dicen lo que se les atribuye?</p>
+    </div>
+    <div class="panel p">
+      <span class="capa p">capa 3 · progresión</span>
+      <p class="body">¿El argumento avanza, o el texto da vueltas?</p>
+    </div>
+    <div class="panel g">
+      <span class="capa g">capa 4 · genericidad</span>
+      <p class="body">¿Podría estar en cualquier ensayo sobre cualquier tema?</p>
+    </div>
+  </div>
+  <p class="small" style="margin-top:calc(var(--u)*30)">Orden de revisión: primero lo que se puede verificar (1 y 2), después lo que exige juicio (3 y 4).</p>
+</section>
+
+<!-- 19 · Individual -->
+<section class="slide" data-block="Clasificar">
+  <p class="eyebrow">Clasificar · individual <span class="mins">12 min</span></p>
+  <p class="body">De tus sospechas, elige las <b>tres más fuertes</b>. Cada una va en tu fila de la planilla como una línea, con este formato:</p>
+  <div class="checkpoint">capa N: "cita textual del pasaje" — por qué es una falla</div>
+  <p class="small" style="margin-top:calc(var(--u)*20)">Ejemplo · <span class="mono">capa 2: "según la OCDE (2023), un 12%..." — el informe citado no aparece en el catálogo de la OCDE</span></p>
+  <p class="body" style="margin-top:calc(var(--u)*20)">Si una sospecha podría ir en dos capas, elige una y anota la razón. Esos casos se discuten en el paso siguiente.</p>
+</section>
+
+<!-- 20 · Pares -->
+<section class="slide" data-block="Pares">
+  <p class="eyebrow">Defender la clasificación · en pares <span class="mins">10 min</span></p>
+  <p class="body">Con la persona de al lado, por turnos:</p>
+  <ul class="plain body" style="margin-top:calc(var(--u)*14)">
+    <li>Uno <b>defiende</b> sus tres clasificaciones: por qué esa capa y no otra.</li>
+    <li>El otro <b>cuestiona</b>: ¿la cita respalda lo que afirmas? ¿Es una falla, o solo estilo?</li>
+    <li>A los 5 minutos se invierten los papeles.</li>
+  </ul>
+  <div class="checkpoint">En la planilla, por par: la falla donde más costó ponerse de acuerdo, y por qué</div>
+</section>
+
+<!-- 21 · Revisión en conjunto -->
+<section class="slide" data-block="En conjunto">
+  <p class="eyebrow">Revisión en conjunto <span class="mins">12 min</span></p>
+  <p class="body">Miramos algunas filas de la planilla entre todos. Por cada falla, dos preguntas:</p>
+  <ul class="plain body" style="margin-top:calc(var(--u)*14)">
+    <li>¿La capa es la correcta?</li>
+    <li>¿La cita respalda la clasificación?</li>
+  </ul>
+  <p class="body" style="margin-top:calc(var(--u)*20)">Después, un evaluador de IA revisa las mismas filas. A su veredicto le aplicamos las mismas dos preguntas.</p>
+</section>
+
+<!-- 22 · Cómo se fabricó -->
+<section class="slide" data-block="En conjunto">
+  <p class="eyebrow">Cómo se fabricó este ensayo</p>
+  <p class="body" style="margin-bottom:calc(var(--u)*20)">El chat completo tiene 11 mensajes. Cinco de ellos, tal cual:</p>
+  <div class="artifact">
+    <p class="mono" style="font-size:calc(var(--u)*17); line-height:1.85">
+    mensaje 1 · el usuario: "hola, tengo que hacer un ensayo para un ramo..."<br>
+    mensaje 6 · el usuario: "oye la parte anterior me quedo media corta, mejorala"<br>
+    mensaje 8 · el usuario: "ponle cifras y estadisticas para que se vea mas serio"<br>
+    <b>mensaje 9 · el modelo advierte: "tres de estas fuentes no las verifiqué — revísalas antes de entregar"</b><br>
+    mensaje 10 · el usuario: "perfecto, ahora juntame todo"</p>
+  </div>
+  <p class="body" style="margin-top:calc(var(--u)*24)">La advertencia del mensaje 9 quedó sin respuesta: el mensaje siguiente pidió juntar todo, y así se entregó. Entre las fuentes del ensayo hay dos organismos que no existen y un DOI inventado.</p>
+</section>
+
+<!-- 23 · Transferencia -->
+<section class="slide" data-block="Otro texto">
+  <p class="eyebrow">El mismo análisis, en otro género</p>
+  <p class="body" style="margin-bottom:calc(var(--u)*20)">Sección de discusión de un informe de laboratorio, generada por IA:</p>
+  <div class="artifact" style="font-size:calc(var(--u)*18.5)">
+    <p><strong>Discusión.</strong> Los resultados obtenidos confirman el comportamiento esperado del material y validan el procedimiento experimental. El módulo de elasticidad calculado (E = 310 GPa) se encuentra dentro del rango típico reportado para aceros estructurales (Callister y Rethwisch, 2014). La diferencia del 12% respecto del valor nominal puede atribuirse a múltiples factores, tales como condiciones ambientales, errores de medición o variabilidad propia del material. El ensayo se realizó según la norma ASTM E8/E8M, lo que garantiza la confiabilidad de los resultados. Asimismo, como demuestra García et al. (2019) en su estudio sobre probetas de acero AISI 1045, la velocidad de deformación no afecta significativamente los resultados obtenidos. En conclusión, los resultados confirman el comportamiento esperado del material y validan el procedimiento experimental empleado.</p>
+    <p class="src">generada por IA para esta actividad</p>
+  </div>
+  <span class="url" style="font-size:calc(var(--u)*20)">rubendaza.github.io/in3143-ia/informe-ejemplo/</span>
+</section>
+
+<!-- 24 · Exit ticket -->
+<section class="slide" data-block="Exit ticket">
+  <p class="eyebrow">Exit ticket <span class="mins">5 min</span></p>
+  <p class="body">Sobre este párrafo: clasifica <b>dos fallas</b> en la última columna de tu fila, mismo formato de una línea. Hay más de dos.</p>
+  <div class="checkpoint">última columna · 2 fallas · capa N: "cita" — por qué</div>
+  <p class="small" style="margin-top:calc(var(--u)*24)">Aviso: el párrafo mezcla referencias reales con inventadas. No marques por marcar.<br>El texto está en <span class="mono">rubendaza.github.io/in3143-ia/informe-ejemplo/</span></p>
+</section>
+
+<!-- 25 · Cierre -->
+<section class="slide" data-block="Cierre">
+  <p class="eyebrow">Cierre</p>
+  <p class="statement">Un texto generado se revisa en cuatro capas: <mark class="f">factualidad</mark>, <mark class="s">fuentes</mark>, <mark class="p">progresión</mark>, <mark class="g">genericidad</mark>. El ensayo y el informe de hoy fallaron en las cuatro.</p>
+  <div style="margin-top:calc(var(--u)*36)">
+    <p class="eyebrow" style="margin-bottom:calc(var(--u)*12)">Antes de IA-2</p>
+    <ul class="plain body">
+      <li>Contesta la encuesta si no alcanzaste en clase: está en U-Cursos.</li>
+      <li>Elige tu configuración y sigue su guía de instalación (las tres están en U-Cursos): crea el proyecto y corre la prueba.</li>
+      <li>El deck, el ensayo y el informe quedan en <span class="mono">rubendaza.github.io/in3143-ia</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="hud">
+  <span>IN3143 · IA-1 · <span id="block"></span></span>
+  <span id="counter"></span>
+</div>
+
+</div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>
