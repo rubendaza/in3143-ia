@@ -1,0 +1,386 @@
+/* Sistema de diseño de los decks IN3143 · parte de IA — v2 (proyector 4:3)
+   Estructura tomada del sistema agile-orgs: escenario fijo 1024×768,
+   unidad --u = ancho/1024, los valores se definen en px de canvas.
+   Voces tipográficas:
+   - Archivo (sans): el curso habla (títulos, consignas, chrome)
+   - Source Serif 4: el artefacto bajo análisis (citas de ensayos, informes)
+   - IBM Plex Mono: operación (tiempos, checkpoints, URLs, etiquetas)
+   Color: el deck es monocromo; el color solo clasifica fallas (4 capas). */
+
+:root {
+  --bg: #ffffff;
+  --ink: #111214;
+  --ink-2: #3f4147;
+  --ink-3: #6c6f76;
+  --line: #d7d7d2;
+  --c1: #a83c28; /* capa 1 · factualidad */
+  --c2: #7d5a17; /* capa 2 · fuentes */
+  --c3: #23646a; /* capa 3 · progresión */
+  --c4: #5f5a85; /* capa 4 · genericidad */
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+body {
+  background: #000;
+  color: var(--ink);
+  font-family: var(--sans);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Escenario 4:3 ---------- */
+
+.stage {
+  position: relative;
+  width: min(100vw, 133.333vh);
+  height: min(75vw, 100vh);
+  --u: calc(min(100vw, 133.333vh) / 1024);
+  background: #000;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: var(--bg);
+  padding: calc(var(--u) * 56) calc(var(--u) * 72) calc(var(--u) * 64);
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.slide.active { display: flex; }
+
+/* chrome fijo dentro del escenario */
+.hud {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: calc(var(--u) * 10) calc(var(--u) * 24);
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 13);
+  color: var(--ink-3);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ---------- Jerarquía ---------- */
+
+.eyebrow {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: calc(var(--u) * 17);
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: calc(var(--u) * 26);
+}
+.eyebrow .mins {
+  color: var(--ink);
+  border: calc(var(--u) * 1.5) solid var(--ink);
+  padding: 0.12em 0.55em;
+  margin-left: 0.9em;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: calc(var(--u) * 56);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+}
+h2 {
+  font-weight: 700;
+  font-size: calc(var(--u) * 44);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+  margin-bottom: calc(var(--u) * 30);
+}
+.statement {
+  font-size: calc(var(--u) * 34);
+  line-height: 1.3;
+  font-weight: 600;
+  max-width: 30ch;
+}
+.body {
+  font-size: calc(var(--u) * 24);
+  line-height: 1.45;
+  font-weight: 400;
+  max-width: 52ch;
+}
+.body + .body { margin-top: calc(var(--u) * 18); }
+.body b, .statement b { font-weight: 700; }
+.small {
+  font-size: calc(var(--u) * 19);
+  color: var(--ink-2);
+  line-height: 1.45;
+}
+.mono { font-family: var(--mono); }
+
+/* listas del curso */
+ul.plain { list-style: none; }
+ul.plain li {
+  padding: calc(var(--u) * 12) 0 calc(var(--u) * 12) calc(var(--u) * 30);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+ul.plain li:last-child { border-bottom: none; }
+ul.plain li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(var(--u) * 26);
+  width: calc(var(--u) * 14);
+  height: calc(var(--u) * 3);
+  background: var(--ink);
+}
+
+/* artefacto bajo análisis: papel serifa, plano */
+.artifact {
+  background: #faf9f6;
+  border: 1px solid var(--line);
+  border-left: calc(var(--u) * 4) solid var(--ink);
+  padding: calc(var(--u) * 26) calc(var(--u) * 30);
+  font-family: var(--serif);
+  font-size: calc(var(--u) * 21);
+  line-height: 1.5;
+  max-width: 76ch;
+}
+.artifact p + p { margin-top: calc(var(--u) * 12); }
+.artifact .src {
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 14);
+  color: var(--ink-3);
+  margin-top: calc(var(--u) * 16);
+}
+
+/* marcas de capa */
+.capa {
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 16);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.capa::before { content: "■ "; }
+.capa.f { color: var(--c1); }
+.capa.s { color: var(--c2); }
+.capa.p { color: var(--c3); }
+.capa.g { color: var(--c4); }
+mark { background: none; padding-bottom: 1px; font-weight: 600; }
+mark.f { border-bottom: calc(var(--u) * 4) solid var(--c1); }
+mark.s { border-bottom: calc(var(--u) * 4) solid var(--c2); }
+mark.p { border-bottom: calc(var(--u) * 4) solid var(--c3); }
+mark.g { border-bottom: calc(var(--u) * 4) solid var(--c4); }
+
+/* ---------- Grillas ---------- */
+
+.cols { display: grid; gap: calc(var(--u) * 40); align-items: start; }
+.cols.two { grid-template-columns: 1fr 1fr; }
+/* cuatro elementos: 2×2, nunca cuatro columnas angostas */
+.cols.four {
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--u) * 24) calc(var(--u) * 40);
+}
+
+.panel { border-top: calc(var(--u) * 4) solid var(--ink); padding-top: calc(var(--u) * 14); }
+.panel h3 {
+  font-size: calc(var(--u) * 26);
+  font-weight: 700;
+  margin-bottom: calc(var(--u) * 8);
+}
+.panel p, .panel li {
+  font-size: calc(var(--u) * 20);
+  line-height: 1.4;
+  font-weight: 400;
+}
+.panel .capa { margin-bottom: calc(var(--u) * 6); display: block; }
+.panel.f { border-color: var(--c1); }
+.panel.s { border-color: var(--c2); }
+.panel.p { border-color: var(--c3); }
+.panel.g { border-color: var(--c4); }
+.panel ul.plain li { padding-top: calc(var(--u) * 8); padding-bottom: calc(var(--u) * 8); }
+.panel ul.plain li::before { top: calc(var(--u) * 20); }
+
+/* ---------- Tablas ---------- */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: calc(var(--u) * 22);
+  line-height: 1.35;
+}
+th {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: calc(var(--u) * 14);
+  color: var(--ink-3);
+  text-align: left;
+  font-weight: 500;
+  padding: 0 calc(var(--u) * 24) calc(var(--u) * 14) 0;
+  border-bottom: calc(var(--u) * 2.5) solid var(--ink);
+}
+td {
+  padding: calc(var(--u) * 20) calc(var(--u) * 24) calc(var(--u) * 20) 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  font-weight: 400;
+}
+td b { font-weight: 700; }
+tr:last-child td { border-bottom: none; }
+
+/* mock de planilla compartida: se dibuja como hoja de cálculo */
+table.sheet {
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 14);
+  line-height: 1.35;
+  border: 1px solid var(--ink-3);
+}
+.sheet th, .sheet td {
+  border: 1px solid var(--line);
+  padding: calc(var(--u) * 9) calc(var(--u) * 12);
+  vertical-align: top;
+}
+.sheet th {
+  background: #f4f4f1;
+  border-bottom: 1px solid var(--ink-3);
+  font-size: calc(var(--u) * 13);
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  text-transform: none;
+}
+.sheet td { color: var(--ink-2); }
+.sheet tr:last-child td { border-bottom: 1px solid var(--line); }
+
+/* ---------- Checkpoint: qué queda escrito en la planilla ---------- */
+
+.checkpoint {
+  margin-top: calc(var(--u) * 30);
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 19);
+  border: calc(var(--u) * 1.5) solid var(--ink);
+  border-left: calc(var(--u) * 6) solid var(--ink);
+  padding: calc(var(--u) * 16) calc(var(--u) * 20);
+  max-width: 60ch;
+  line-height: 1.5;
+}
+.checkpoint b { font-weight: 600; }
+
+/* ---------- QR y capturas ---------- */
+
+.qrwrap { display: flex; gap: calc(var(--u) * 44); align-items: center; }
+.qrwrap img {
+  width: calc(var(--u) * 260);
+  height: auto;
+  border: 1px solid var(--line);
+  padding: calc(var(--u) * 8);
+}
+.qrfallback {
+  width: calc(var(--u) * 260);
+  aspect-ratio: 1;
+  border: 2px dashed var(--ink-3);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 14);
+  color: var(--ink-3);
+  padding: calc(var(--u) * 16);
+  flex: none;
+}
+
+/* captura de pantalla: borde propio, tamaño controlado por el layout */
+.shot { border: 1px solid var(--line); background: #f4f4f1; overflow: hidden; }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.shotfallback {
+  width: 100%; height: 100%;
+  min-height: calc(var(--u) * 200);
+  border: 2px dashed var(--ink-3);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 14);
+  color: var(--ink-3);
+  padding: calc(var(--u) * 16);
+}
+
+.url {
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 24);
+  border-bottom: calc(var(--u) * 3) solid var(--ink);
+  display: inline-block;
+  margin-top: calc(var(--u) * 20);
+}
+
+/* ---------- Portada ---------- */
+
+.cover { background: var(--ink); color: #fff; justify-content: flex-end; padding-bottom: calc(var(--u) * 88); }
+.cover .inst {
+  position: absolute;
+  top: calc(var(--u) * 56);
+  left: calc(var(--u) * 72);
+  right: calc(var(--u) * 72);
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 16);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+}
+.cover .curso {
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: calc(var(--u) * 16);
+  color: rgba(255,255,255,0.7);
+  margin-bottom: calc(var(--u) * 24);
+}
+.cover h1 { max-width: 18ch; color: #fff; }
+.cover .fecha {
+  margin-top: calc(var(--u) * 30);
+  font-family: var(--mono);
+  font-size: calc(var(--u) * 17);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.8;
+}
+.cover .marcas {
+  position: absolute;
+  right: calc(var(--u) * 72);
+  bottom: calc(var(--u) * 88);
+  display: grid;
+  gap: calc(var(--u) * 14);
+  text-align: right;
+}
+
+/* ---------- Animación y print ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .slide.active > * { animation: rise 240ms ease-out both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+}
+
+@page { size: landscape; margin: 0; }
+@media print {
+  body { overflow: visible; display: block; background: #fff; }
+  .stage { width: 100%; height: auto; background: none; --u: calc(100vw / 1024); }
+  .slide {
+    display: flex !important;
+    position: relative;
+    width: 100%;
+    height: 75vw;
+    page-break-after: always;
+  }
+  .hud { display: none; }
+  .cover, .band, mark, .capa::before, .panel {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

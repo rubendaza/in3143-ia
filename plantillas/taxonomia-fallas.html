@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taxonomía de fallas · IN3143</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 44rem; margin: 3rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.6; }
+  .curso { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin-top: 0.4rem; }
+  h2 { font-size: 1.05rem; margin-top: 2.2rem; padding-top: 0.5rem; }
+  h2.c1 { border-top: 3px solid #b4432e; }
+  h2.c2 { border-top: 3px solid #86611c; }
+  h2.c3 { border-top: 3px solid #2e6e73; }
+  h2.c4 { border-top: 3px solid #6e6a8f; }
+  h2.plain { border-top: 1px solid #ddd; }
+  .pregunta { font-style: italic; color: #444; }
+  ul { padding-left: 1.2rem; }
+  li { margin: 0.35rem 0; }
+  p { margin: 0.8rem 0; }
+  @media print { body { margin: 1rem auto; } }
+</style>
+</head>
+<body>
+
+<p class="curso">IN3143 · parte de IA · entregable de la sesión IA-1</p>
+<h1>Taxonomía de fallas de un texto generado por IA</h1>
+
+<p>Esta taxonomía ordena las fallas típicas de un texto generado por un modelo de lenguaje en cuatro capas. Se revisa siempre en este orden, porque las capas van de lo verificable a lo interpretable: primero lo que se puede comprobar contra el mundo, después lo que se puede comprobar contra las fuentes, después lo que exige leer el argumento completo, y al final lo que exige juicio sobre la escritura. La taxonomía sirve para cualquier producto de IA que vayas a usar o entregar: un ensayo, un informe de laboratorio, un memo, la documentación de un código.</p>
+
+<h2 class="c1">Capa 1: factualidad</h2>
+<p class="pregunta">¿Los hechos y las cifras son ciertos?</p>
+<ul>
+<li>Una cifra inventada o desactualizada, presentada con total seguridad.</li>
+<li>Un dato real deformado: el número existe pero corresponde a otro año, otro país u otra medición.</li>
+<li>Dos fuentes mezcladas en una sola afirmación que ninguna de las dos sostiene.</li>
+<li>Precisión falsa: decimales y desgloses que sugieren una medición que nunca ocurrió.</li>
+</ul>
+<p>Cómo se detecta: se eligen las dos o tres cifras que cargan el argumento y se buscan en la fuente original, no en resúmenes de prensa. Si una cifra no aparece en ninguna fuente primaria, se trata como inventada aunque suene plausible.</p>
+
+<h2 class="c2">Capa 2: fuentes, existencia y fidelidad</h2>
+<p class="pregunta">¿Las referencias existen, y dicen lo que se les atribuye?</p>
+<p>Son dos verificaciones distintas. Una referencia puede existir y estar mal usada.</p>
+<ul>
+<li>Referencia fabricada con formato impecable: autor plausible, revista real, DOI que no resuelve.</li>
+<li>Fuente real citada para una afirmación que no contiene.</li>
+<li>Organismo o institución con el nombre casi correcto, pero no exacto.</li>
+<li>Referencia que aparece en la bibliografía y nunca se usa en el texto, o al revés.</li>
+<li>URL que no lleva al documento citado.</li>
+</ul>
+<p>Cómo se detecta: existencia primero (buscar el título exacto, abrir el DOI o la URL), fidelidad después (abrir el documento y ubicar la afirmación citada). Ninguna fuente se da por buena sin haberla abierto.</p>
+
+<h2 class="c3">Capa 3: progresión argumentativa</h2>
+<p class="pregunta">¿El argumento avanza, o el texto acumula material?</p>
+<ul>
+<li>La conclusión repite la introducción con las mismas frases o casi.</li>
+<li>Secciones yuxtapuestas: cada una funciona sola, pero ninguna usa el resultado de la anterior.</li>
+<li>Evidencia decorativa: cifras y citas que no empujan ninguna afirmación del texto.</li>
+<li>Falsa síntesis: el cierre declara que "todo depende de varios factores" sin comprometerse con ninguno.</li>
+</ul>
+<p>Cómo se detecta: se escribe en una línea qué afirma cada sección y qué le aporta a la siguiente. Si dos secciones se pueden intercambiar sin que el texto pierda sentido, no hay progresión entre ellas.</p>
+
+<h2 class="c4">Capa 4: genericidad</h2>
+<p class="pregunta">¿Este texto podría haberlo escrito cualquiera, sobre cualquier caso parecido?</p>
+<ul>
+<li>Equilibrio automático: el texto reparte razón entre todas las posturas y no defiende ninguna.</li>
+<li>Muletillas estructurales que se repiten: "la pregunta no es X sino Y", "ni A ni B", contrastes simétricos en serie.</li>
+<li>Matices de protección en cada afirmación: "en cierta medida", "puede depender", "no siempre".</li>
+<li>Ausencia de caso propio: ningún ejemplo, dato o decisión que el autor haya puesto de su cosecha.</li>
+<li>Prosa pulida que se lee bien y no deja ninguna idea nueva al terminar el párrafo.</li>
+</ul>
+<p>Cómo se detecta: se reemplaza el tema del texto por otro tema vecino. Si el 80% de las frases sobrevive al reemplazo, el texto es genérico.</p>
+
+<h2 class="plain">Uso de la taxonomía</h2>
+<p>Para clasificar una falla se registra: la capa, la cita textual del pasaje, y una línea que explique por qué es una falla. Una falla puede tocar dos capas; se clasifica en la capa donde el daño es mayor. El orden de revisión importa más que la exhaustividad: un texto con las capas 1 y 2 limpias y la capa 4 débil se corrige; un texto con la capa 2 podrida se descarta y se rehace la investigación.</p>
+
+</body>
+</html>
