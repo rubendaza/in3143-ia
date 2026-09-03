@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA-2 · Delegar el examen de la tesis y la búsqueda de evidencia · IN3143</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div class="stage">
+
+<!-- 1 · Portada -->
+<section class="slide cover" data-block="">
+  <p class="inst">Universidad de Chile · Departamento de Ingeniería Industrial</p>
+  <p class="curso">IN3143 · Escritura académica para las ingenierías y las ciencias</p>
+  <h1>Delegar sin perder el juicio: tesis y evidencia</h1>
+  <p class="fecha">Sesión IA-2 · 3 de septiembre de 2026<br>Prof. Rubén Daza</p>
+</section>
+
+<!-- 2 · Competencia del día -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">Hoy</p>
+  <p class="statement">Sabes dirigir el modelo para examinar tu tesis y para buscar pistas de evidencia. Sabes qué reservas para ti: abrir la fuente y decidir si respalda el argumento.</p>
+  <p class="body" style="margin-top:calc(var(--u)*30)">La sesión produce material para la entrega del jueves 10: la Plantilla de planificación y la primera Declaración de uso de IA.</p>
+</section>
+
+<!-- 3 · Mapa de la parte de IA -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow" style="margin-bottom:calc(var(--u)*20)">Las cuatro sesiones de IA</p>
+  <table>
+    <tr><th>Sesión</th><th>Qué aprendes</th><th>Cuenta para</th></tr>
+    <tr><td class="mono" style="color:var(--ink-3)">IA-1 · hecha</td><td style="color:var(--ink-3)">Detectar y clasificar fallas de un texto generado<br><span class="capa">discernment</span></td><td style="color:var(--ink-3)">Declaración del borrador</td></tr>
+    <tr><td class="mono"><b>IA-2 · hoy</b></td><td><b>Decidir qué le delegas al modelo y qué haces tú</b><br><span class="capa" style="color:var(--ink-2)">delegation</span></td><td><b>Planificación (S5) · declaración 1 · 3%</b></td></tr>
+    <tr><td class="mono">IA-3</td><td>Especificar el encargo: criterios para dirigir y auditar<br><span class="capa" style="color:var(--ink-3)">description</span></td><td>Borrador (S7) · declaración 2 · 5%</td></tr>
+    <tr><td class="mono">IA-4</td><td>Aceptar, corregir o rechazar lo que el modelo propone<br><span class="capa" style="color:var(--ink-3)">diligence</span></td><td>Texto final (S14) · declaración 3 · 7%</td></tr>
+  </table>
+  <p class="small" style="margin-top:calc(var(--u)*12)">Las cuatro competencias en inglés son las 4D del marco AI Fluency (Anthropic, 2025).</p>
+</section>
+
+<!-- 4 · Qué se entrega el jueves 10 -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">Entrega del jueves 10 · una sola tarea de U-Cursos</p>
+  <table>
+    <tr><th style="width:34%">Qué subes</th><th>Qué produce la sesión de hoy</th></tr>
+    <tr><td><b>Plantilla de planificación</b><br><span class="small">18 puntos, rúbrica de la profesora</span></td><td>La tesis examinada y tu decisión sobre ella; tres argumentos con su familia de evidencia y sus términos de búsqueda.</td></tr>
+    <tr><td><b>Declaración de uso de IA 1</b><br><span class="small">3% del curso</span></td><td>Una versión 1 escrita en clase: prompts usados, qué verificaste, qué descartaste.</td></tr>
+  </table>
+  <p class="body" style="margin-top:calc(var(--u)*26)">Las referencias APA de la plantilla las buscas y las abres tú, en tu casa, con la guía de verificación de fuentes.</p>
+</section>
+
+<!-- 5 · Hoja de sesión -->
+<section class="slide" data-block="Apertura">
+  <p class="eyebrow">Hoja de sesión</p>
+  <div class="cols two" style="grid-template-columns: 1.6fr 1fr; align-items:center; margin-bottom:calc(var(--u)*30)">
+    <ul class="plain body">
+      <li>Una fila por persona, con tu nombre. Fila completa cuenta como asistencia.</li>
+      <li>Cada bloque de trabajo termina con una celda escrita.</li>
+      <li>En el minuto 44 miramos algunas filas en pantalla.</li>
+    </ul>
+    <div style="text-align:center">
+      <img src="qr-hoja.png" alt="QR de la hoja de sesión" style="width:calc(var(--u)*180); border:1px solid var(--line); padding:calc(var(--u)*6)" onerror="this.outerHTML='&lt;div class=&quot;qrfallback&quot; style=&quot;width:calc(var(--u)*180); margin:0 auto&quot;&gt;qr-hoja.png&lt;br&gt;(QR del Sheet)&lt;/div&gt;'">
+      <p class="small" style="margin-top:calc(var(--u)*10)">link también en U-Cursos</p>
+    </div>
+  </div>
+  <table class="sheet">
+    <tr><th style="width:11%">nombre</th><th style="width:15%">tesis v1</th><th style="width:15%">objeción más fuerte</th><th style="width:14%">decisión</th><th style="width:11%">argumento 1</th><th style="width:11%">argumento 2</th><th style="width:11%">argumento 3</th><th style="width:12%">delegué / reservé / verificaré</th></tr>
+    <tr><td>tu nombre →</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+</section>
+
+<!-- 6 · Delegation en tres partes -->
+<section class="slide" data-block="Conceptos I">
+  <p class="eyebrow">Conceptos I · delegation</p>
+  <h2>Delegar exige decisiones previas</h2>
+  <table>
+    <tr><td style="width:30%"><b>Conciencia del problema</b></td><td>Qué parte del trabajo estás resolviendo ahora. Hoy: probar si tu tesis se sostiene y qué evidencia necesitaría.</td></tr>
+    <tr><td><b>Conciencia de la plataforma</b></td><td>Qué puede hacer la herramienta que tienes abierta. Un chat gratuito sin búsqueda activa responde desde memoria y ahí aparecen las referencias inventadas.</td></tr>
+    <tr><td><b>Conciencia de la tarea</b></td><td>Qué le pides y qué te reservas. El examen de la tesis se delega; la decisión sobre la tesis y la lectura de las fuentes se reservan.</td></tr>
+  </table>
+</section>
+
+<!-- 7 · Delegation sobre la plantilla -->
+<section class="slide" data-block="Conceptos I">
+  <p class="eyebrow">Conceptos I · la plantilla, parte por parte</p>
+  <table style="font-size:calc(var(--u)*20)">
+    <tr><th style="width:24%">Parte de la plantilla</th><th style="width:20%">Delegas</th><th style="width:20%">Reservas</th><th>Por qué</th></tr>
+    <tr><td><b>Título y tesis</b></td><td>Examen y objeciones</td><td>La formulación final</td><td>La tesis la defiendes tú ante la profesora.</td></tr>
+    <tr><td><b>Argumentos</b></td><td>Candidatos y familia de evidencia</td><td>Cuál entra al ensayo</td><td>El modelo propone; el recorte es criterio propio.</td></tr>
+    <tr><td><b>Fuentes</b></td><td>Términos de búsqueda</td><td>Buscar y abrir</td><td>Un chat sin búsqueda no lee documentos reales.</td></tr>
+    <tr><td><b>Referencias APA</b></td><td>Revisar formato</td><td>Los datos de la ficha</td><td>Autor, año y DOI salen de la fuente abierta.</td></tr>
+  </table>
+</section>
+
+<!-- 8 · Sicofancia -->
+<section class="slide" data-block="Conceptos I">
+  <p class="eyebrow">Conceptos I · sicofancia</p>
+  <h2>El modelo tiende a darte la razón</h2>
+  <p class="body">Los modelos se ajustan con preferencias humanas, y las respuestas que agradan al usuario reciben mejor puntaje durante ese ajuste. Con una tesis pegada en el chat, el comportamiento por defecto queda cerca del acuerdo.</p>
+  <ul class="plain body" style="margin-top:calc(var(--u)*20)">
+    <li>Abre elogiando el tema y la formulación.</li>
+    <li>Reformula tu tesis con mejor redacción y la devuelve como si fuera la tuya.</li>
+    <li>Entrega objeciones tibias que la tesis ya responde.</li>
+  </ul>
+</section>
+
+<!-- 9 · Rol, criterio y formato -->
+<section class="slide" data-block="Conceptos I">
+  <p class="eyebrow">Conceptos I · las tres contramedidas</p>
+  <table>
+    <tr><td style="width:26%"><b>Rol</b></td><td>Se le asigna una función con obligaciones. <span class="mono" style="font-size:calc(var(--u)*18)">«Eres examinador de tesis […] Omite el acompañamiento y el estímulo.»</span></td></tr>
+    <tr><td><b>Criterio</b></td><td>Se fijan las pruebas que debe aplicar. <span class="mono" style="font-size:calc(var(--u)*18)">«¿La tesis es discutible o es una constatación que nadie disputaría?»</span></td></tr>
+    <tr><td><b>Formato de salida</b></td><td>Se fijan las etiquetas de la respuesta. <span class="mono" style="font-size:calc(var(--u)*18)">«OBJECIÓN MÁS FUERTE: [una o dos líneas]»</span></td></tr>
+  </table>
+  <p class="small" style="margin-top:calc(var(--u)*24)">El formato fijo también sirve de control: si la respuesta llega con preámbulo y elogios, el prompt se ignoró y se pide de nuevo.</p>
+</section>
+
+<!-- 10 · Prompt examinador anotado -->
+<section class="slide" data-block="Conceptos I">
+  <p class="eyebrow">Prompt examinador de tesis · kit de la clase</p>
+  <div class="cols two" style="grid-template-columns: 1.5fr 1fr; align-items:center">
+    <div class="artifact" style="font-family:var(--mono); font-size:calc(var(--u)*17); line-height:1.6">
+      Eres examinador de tesis de ensayo académico en un curso universitario de escritura.<br>
+      Tu tarea es someter una tesis a prueba y reportar dónde cede. Omite el acompañamiento y el estímulo.<br>
+      1. ¿La tesis es discutible o es una constatación que nadie disputaría?<br>
+      2. ¿Qué tendría que ser cierto para que la tesis se sostenga? Nombra dos o tres supuestos.<br>
+      3. ¿Cuál es la postura contraria más fuerte que un lector informado podría defender?<br>
+      - Prohibido elogiar, felicitar o valorar el esfuerzo. Cero preámbulo y cero cierre.<br>
+      - Prohibido proponer fuentes, autores, referencias o bibliografía.<br>
+      TESIS CANDIDATA: [una oración]<br>
+      OBJECIÓN MÁS FUERTE: [una o dos líneas]
+    </div>
+    <div>
+      <p class="small"><b>Líneas 1-2 · rol.</b> Fijan la función y le quitan el papel de acompañante.</p>
+      <p class="small" style="margin-top:calc(var(--u)*16)"><b>Líneas 3-5 · criterio.</b> Las tres pruebas que debe aplicar, en ese orden.</p>
+      <p class="small" style="margin-top:calc(var(--u)*16)"><b>Líneas 6-7 · prohibiciones.</b> Bloquean el elogio y las referencias.</p>
+      <p class="small" style="margin-top:calc(var(--u)*16)"><b>Líneas 8-9 · formato.</b> Etiquetas fijas; dos de ellas se copian a la hoja.</p>
+      <p class="small mono" style="margin-top:calc(var(--u)*18)">kit completo en U-Cursos</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · Consigna examen individual -->
+<section class="slide" data-block="Examinar">
+  <p class="eyebrow">Examinar tu tesis · individual <span class="mins">12 min</span></p>
+  <p class="body">Abre un chat nuevo, pega el prompt examinador y debajo tu problemática y tu tesis. Si todavía no tienes tesis redactada, pega el tema y tu postura tentativa.</p>
+  <p class="body" style="margin-top:calc(var(--u)*18)">Tu tesis está en revisión con la profesora. El examen de hoy sirve para encontrarle debilidades antes de esa revisión.</p>
+  <div class="checkpoint"><b>Tesis v1:</b> la línea TESIS CANDIDATA · <b>Objeción más fuerte:</b> la línea OBJECIÓN MÁS FUERTE</div>
+  <p class="small mono" style="margin-top:calc(var(--u)*18)">el prompt está en U-Cursos · checkpoint a las [hora]</p>
+</section>
+
+<!-- 12 · Consigna pares -->
+<section class="slide" data-block="Pares">
+  <p class="eyebrow">Defender la tesis · en pares <span class="mins">12 min</span></p>
+  <p class="body">Con la persona de al lado, por turnos. Uno lee su tesis y la objeción que recibió; el otro pregunta:</p>
+  <ul class="plain body" style="margin-top:calc(var(--u)*14)">
+    <li>¿Es discutible, o alguien podría estar en desacuerdo con ella?</li>
+    <li>¿Esa formulación es tuya, o la escribió el modelo?</li>
+  </ul>
+  <p class="body" style="margin-top:calc(var(--u)*16)">A los 6 minutos se invierten los papeles.</p>
+  <div class="checkpoint"><b>Decisión:</b> mantengo o ajusto la tesis, y por qué. Con tus palabras. Si ajustas, esa versión es la que le llevas a la profesora.</div>
+</section>
+
+<!-- 13 · Revisión en conjunto -->
+<section class="slide" data-block="En conjunto">
+  <p class="eyebrow">Revisión en conjunto <span class="mins">8 min</span></p>
+  <p class="body">Proyectamos dos o tres filas de la hoja. Primero quien se ofrezca; después orden aleatorio.</p>
+  <p class="body" style="margin-top:calc(var(--u)*18)">Sobre cada fila corre el <b>evaluador de tesis</b> del kit desde la cuenta del profesor, y dicta tres líneas: si la tesis es discutible, si la objeción registrada es la más fuerte, si la decisión está justificada.</p>
+  <p class="body" style="margin-top:calc(var(--u)*18)">La sala audita ese veredicto con las mismas preguntas del trabajo en pares. El veredicto del modelo no reemplaza la columna Decisión.</p>
+</section>
+
+<!-- 14 · De dónde salen las referencias -->
+<section class="slide" data-block="Conceptos II">
+  <p class="eyebrow">Conceptos II · las referencias de un modelo</p>
+  <div class="cols two">
+    <div class="panel">
+      <h3>Memoria paramétrica</h3>
+      <p>El modelo aprendió la forma de una referencia: autores plausibles, revista plausible, año plausible, DOI con la estructura correcta.</p>
+      <p style="margin-top:calc(var(--u)*12)">Produce fichas bien formadas de documentos que no existen.</p>
+    </div>
+    <div class="panel">
+      <h3>Búsqueda activa</h3>
+      <p>El producto consulta la web durante la respuesta, abre páginas y cita lo que leyó, con enlace.</p>
+      <p style="margin-top:calc(var(--u)*12)">La referencia suele existir. Que diga lo que se le atribuye es otra pregunta.</p>
+    </div>
+  </div>
+  <p class="small" style="margin-top:calc(var(--u)*28)">Antes de citar algo, revisa si la respuesta trae enlaces a páginas que se puedan abrir.</p>
+</section>
+
+<!-- 15 · El caso OCDE de IA-1 -->
+<section class="slide" data-block="Conceptos II">
+  <p class="eyebrow">Conceptos II · el ensayo de IA-1</p>
+  <div class="artifact" style="font-size:calc(var(--u)*19)">
+    <p>«Según la OCDE, alrededor del 12% de los empleos son automatizables.»</p>
+    <p class="mono" style="font-size:calc(var(--u)*17)">OCDE (2024). <i>Creación de empleo y desarrollo económico local 2024</i>. doi 10.1787/b6a83f5f-en</p>
+    <p class="src">ensayo de ejemplo generado con Gemini, publicado sin verificar</p>
+  </div>
+  <ul class="plain body" style="margin-top:calc(var(--u)*22); font-size:calc(var(--u)*22)">
+    <li>El informe existe. Su DOI real es 10.1787/83325127-en; el citado devuelve 404 y no está en Crossref.</li>
+    <li>El informe no contiene la cifra del 12%. Queda entre dos cifras reales de la OCDE: 9% en Arntz et al. (2016) y 14% en Employment Outlook (2019).</li>
+    <li>En clase, nadie había abierto la fuente.</li>
+  </ul>
+</section>
+
+<!-- 16 · Búsqueda en cuentas gratuitas -->
+<section class="slide" data-block="Conceptos II">
+  <p class="eyebrow">Conceptos II · qué trae tu cuenta gratuita</p>
+  <table>
+    <tr><th style="width:40%">Producto</th><th>Búsqueda web</th></tr>
+    <tr><td><b>ChatGPT</b></td><td>Sí</td></tr>
+    <tr><td><b>Claude</b></td><td>Sí</td></tr>
+    <tr><td><b>Gemini</b></td><td>Sí</td></tr>
+  </table>
+  <p class="body" style="margin-top:calc(var(--u)*26)">Con búsqueda activa las referencias suelen existir, y la cita hay que abrirla igual para ver si dice lo que el modelo le atribuye. Sin búsqueda, la respuesta sale de memoria.</p>
+  <p class="small" style="margin-top:calc(var(--u)*18)">La investigación profunda depende del plan y cambia mes a mes. Revísalo en tu cuenta antes de contar con ella.</p>
+</section>
+
+<!-- 17 · Triangulación y regla de cierre -->
+<section class="slide" data-block="Conceptos II">
+  <p class="eyebrow">Conceptos II · qué pide la plantilla</p>
+  <ul class="plain body">
+    <li><b>Tres argumentos, dos respaldados con un AIC y el tercero con otra familia de fuente.</b> Eso deja tres referencias con dos AIC: la cuarta referencia también tiene que ser AIC para llegar a los tres que pide la Plantilla, y puede ser un segundo respaldo de cualquiera de los tres argumentos.</li>
+    <li><b>Familias disponibles:</b> artículo de investigación científica, informe de organismo público o internacional, datos estadísticos oficiales, norma técnica, documentación de la industria.</li>
+    <li><b>Qué es un AIC:</b> artículo publicado en una revista con revisión por pares, que reporta un estudio propio con método y resultados.</li>
+    <li><b>Regla de cierre:</b> una referencia entra a la plantilla después de que la abriste.</li>
+  </ul>
+</section>
+
+<!-- 18 · Dónde se busca un AIC -->
+<section class="slide" data-block="Conceptos II">
+  <p class="eyebrow">Conceptos II · dónde se busca un AIC</p>
+  <table>
+    <tr><td style="width:32%"><b>Google Scholar</b><br><span class="mono small">scholar.google.com</span></td><td>Búsqueda amplia. Filtra por año y sigue el enlace al sitio de la revista.</td></tr>
+    <tr><td><b>SciELO</b><br><span class="mono small">scielo.org</span></td><td>Revistas de América Latina con revisión por pares, texto completo abierto.</td></tr>
+    <tr><td><b>Biblioteca U. de Chile</b><br><span class="mono small">bibliotecas.uchile.cl</span></td><td>Acceso al PDF de revistas pagadas con tu cuenta institucional.</td></tr>
+  </table>
+  <p class="body" style="margin-top:calc(var(--u)*24)">Para saber si es AIC: tiene revista y volumen, secciones de método y resultados, y datos o casos propios. Una nota de prensa o una entrada de blog sobre un estudio no cuenta.</p>
+</section>
+
+<!-- 19 · Prompt explorador anotado -->
+<section class="slide" data-block="Conceptos II">
+  <p class="eyebrow">Prompt explorador de evidencia · kit de la clase</p>
+  <div class="cols two" style="grid-template-columns: 1.6fr 1fr; gap:calc(var(--u)*28); align-items:center">
+    <div class="artifact" style="font-family:var(--mono); font-size:calc(var(--u)*15); line-height:1.45">
+      Eres asistente de planificación de un ensayo académico universitario.<br>
+      1. Formula tres argumentos distintos que sostengan la tesis. Cada argumento se explica en dos o tres oraciones.<br>
+      2. A cada argumento asígnale UNA familia de fuente [...]. Reparte así: dos argumentos con familia AIC y el tercero con una familia distinta de las cinco.<br>
+      3. Para cada argumento entrega de 3 a 4 términos de búsqueda en español y los equivalentes en inglés usados en la literatura del área.<br>
+      <b>- No entregues citas, autores, títulos de artículos, años, revistas, DOI ni URL.</b><br>
+      <b>- Si al redactar se te escapa cualquier referencia, bórrala y escribe [buscar] en su lugar.</b><br>
+      ARGUMENTO 1: [dos o tres oraciones]   (repite el bloque para 2 y 3)<br>
+      FAMILIA DE EVIDENCIA: [una sola familia]<br>
+      BÚSQUEDA (es): [3 a 4 términos separados por punto y coma]<br>
+      BÚSQUEDA (en): [3 a 4 términos separados por punto y coma]
+    </div>
+    <div>
+      <p class="small"><b>Líneas 1-4 · rol y criterio.</b> Planificación, sin redacción del ensayo: tres argumentos, dos con familia AIC y el tercero con otra, y términos en español e inglés.</p>
+      <p class="small" style="margin-top:calc(var(--u)*16)"><b>Líneas 5-6 · la prohibición.</b> Con la prohibición activa, la respuesta llega sin autores ni años que después haya que descartar.</p>
+      <p class="small" style="margin-top:calc(var(--u)*16)"><b>Líneas 7-10 · formato.</b> Tres bloques con las mismas etiquetas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · Consigna argumentos -->
+<section class="slide" data-block="Argumentos">
+  <p class="eyebrow">Argumentos y evidencia · individual <span class="mins">10 min</span></p>
+  <p class="body">Chat nuevo, prompt explorador, y debajo tu tesis en la versión que dejaste en la columna Decisión.</p>
+  <p class="body" style="margin-top:calc(var(--u)*18)">De la respuesta, resume cada bloque en una línea. Si aparece un autor o un año, bórralo: es dato no verificado.</p>
+  <div class="checkpoint"><b>Argumento 1, 2 y 3:</b> una línea cada uno<br>argumento · familia de evidencia · términos de búsqueda</div>
+</section>
+
+<!-- 21 · Formato de la Declaración 1 -->
+<section class="slide" data-block="Declaración 1">
+  <p class="eyebrow">Declaración de uso de IA 1 · una página · 3%</p>
+  <table>
+    <tr><td style="width:30%"><b>1 · Declaración</b></td><td>El párrafo del Instructivo N° 17/2026 completado: qué herramientas, en qué etapas de la planificación, para qué.</td></tr>
+    <tr><td><b>2 · Prompts utilizados</b></td><td>Uno o dos prompts exactos copiados del chat, y debajo un fragmento de 3 a 6 líneas de la respuesta.</td></tr>
+    <tr><td><b>3 · Metodología de uso</b></td><td>(a) ¿Cómo lo usaste? (b) ¿Cómo verificaste lo que te dio? (c) ¿Qué descartaste o cambiaste, y por qué? De 3 a 5 líneas cada una.</td></tr>
+  </table>
+  <p class="small" style="margin-top:calc(var(--u)*24)">«No usé IA para X porque Y» es una respuesta válida y puede obtener nota máxima si dice qué hiciste en su lugar.</p>
+</section>
+
+<!-- 22 · Rúbrica -->
+<section class="slide" data-block="Declaración 1">
+  <p class="eyebrow">Rúbrica · 4 criterios × 3 niveles · 12 puntos</p>
+  <table style="font-size:calc(var(--u)*19)">
+    <tr><th style="width:24%">Criterio</th><th style="width:32%">Logrado (3)</th><th style="width:24%">Parcial (2)</th><th>Insuficiente (1)</th></tr>
+    <tr><td><b>Trazabilidad</b><br><span class="small">parte 2</span></td><td>Prompt literal con tu aporte identificable y un fragmento que se retoma en la parte 3.</td><td>Prompt parafraseado, o falta el fragmento.</td><td>Solo el nombre de la herramienta.</td></tr>
+    <tr><td><b>Criterio de aceptación y rechazo</b><br><span class="small">parte 3c</span></td><td>Un elemento rechazado con nombre propio y el criterio con que lo rechazaste.</td><td>Algo cambiado, sin criterio.</td><td>Nada rechazado.</td></tr>
+    <tr><td><b>Rigor de verificación</b><br><span class="small">parte 3b</span></td><td>Qué abriste, qué buscaste dentro y qué encontraste.</td><td>Se nombra el buscador, sin decir qué comprobaste.</td><td>Adjetivos de confianza.</td></tr>
+    <tr><td><b>Honestidad reflexiva</b><br><span class="small">partes 3a y 3c</span></td><td>Separa el trabajo del modelo del tuyo, incluidos los usos que fallaron.</td><td>Reparto declarado en términos amplios.</td><td>El relato contradice la parte 2.</td></tr>
+  </table>
+</section>
+
+<!-- 23 · Dos declaraciones, sin nivel -->
+<section class="slide" data-block="Declaración 1">
+  <p class="eyebrow">Parte 3b y 3c · dos versiones del mismo trabajo</p>
+  <div class="cols two">
+    <div class="artifact" style="font-size:calc(var(--u)*17); line-height:1.45">
+      <p class="src" style="margin-top:0">declaración A</p>
+      <p><b>b)</b> Pregunté qué evidencia respaldaría la objeción y el modelo mencionó un estudio de la Comisión Europea con 9% de ahorro. Busqué el título en Google Scholar y no apareció. Con otros términos encontré un artículo con revisión por pares en <i>Energy Policy</i> que reporta entre 2% y 5%. Abrí el PDF y ubiqué el rango en la tabla 3.</p>
+      <p><b>c)</b> Descarté la cifra de 9%. También el argumento de privacidad: defiende otra tesis.</p>
+    </div>
+    <div class="artifact" style="font-size:calc(var(--u)*17); line-height:1.45">
+      <p class="src" style="margin-top:0">declaración B</p>
+      <p><b>b)</b> Revisé cuidadosamente toda la información entregada por la herramienta y contrasté los datos con fuentes confiables disponibles en internet. También me aseguré de que las referencias correspondieran a artículos académicos serios y actualizados.</p>
+      <p><b>c)</b> Adapté las propuestas de la herramienta a mi estilo de escritura, reformulando las ideas con mis propias palabras.</p>
+    </div>
+  </div>
+  <p class="small" style="margin-top:calc(var(--u)*26)">¿Cuál de las dos partes b se puede auditar? ¿Qué tendrías que abrir para comprobarla?</p>
+</section>
+
+<!-- 24 · Los mismos ejemplos, con nivel -->
+<section class="slide" data-block="Declaración 1">
+  <p class="eyebrow">Parte 3b y 3c · el nivel de cada una</p>
+  <div class="cols two">
+    <div>
+      <div class="artifact" style="font-size:calc(var(--u)*16); line-height:1.4">
+        <p><b>b)</b> Pregunté qué evidencia respaldaría la objeción y el modelo mencionó un estudio de la Comisión Europea con 9% de ahorro. Busqué el título en Google Scholar y no apareció. Con otros términos encontré un artículo con revisión por pares en <i>Energy Policy</i> que reporta entre 2% y 5%. Abrí el PDF y ubiqué el rango en la tabla 3.</p>
+        <p><b>c)</b> Descarté la cifra de 9%. También el argumento de privacidad: defiende otra tesis.</p>
+      </div>
+      <p class="small" style="margin-top:calc(var(--u)*14)"><b>Logrado en los dos criterios.</b> Dice qué preguntó, dónde buscó, qué no encontró y en qué tabla quedó el dato; el rechazo tiene objeto y razón.</p>
+    </div>
+    <div>
+      <div class="artifact" style="font-size:calc(var(--u)*16); line-height:1.4">
+        <p><b>b)</b> Revisé cuidadosamente toda la información entregada por la herramienta y contrasté los datos con fuentes confiables disponibles en internet. También me aseguré de que las referencias correspondieran a artículos académicos serios y actualizados.</p>
+        <p><b>c)</b> Adapté las propuestas de la herramienta a mi estilo de escritura, reformulando las ideas con mis propias palabras.</p>
+      </div>
+      <p class="small" style="margin-top:calc(var(--u)*14)"><b>Insuficiente en los dos criterios.</b> Ninguna fuente abierta con nombre, ningún dato comprobado; «adapté a mi estilo» deja entrar el contenido completo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · Consigna declaración v1 -->
+<section class="slide" data-block="Declaración 1">
+  <p class="eyebrow">Escribir la declaración v1 <span class="mins">14 min</span></p>
+  <p class="body">Abre el formato desde U-Cursos y escribe tu versión 1 con lo que hiciste hoy. Los prompts los copias del chat que tienes abierto.</p>
+  <p class="body" style="margin-top:calc(var(--u)*18)">La parte 3b se completa en tu casa, cuando busques y abras las fuentes de tus tres argumentos.</p>
+  <div class="checkpoint"><b>Delegué / reservé / verificaré:</b> una línea por cada uno, en la última columna de tu fila</div>
+  <p class="small" style="margin-top:calc(var(--u)*16)">Antes de salir: pega en un documento tus prompts y las respuestas completas; son el insumo de la Plantilla y de la parte 2 de la Declaración.</p>
+</section>
+
+<!-- 26 · Cierre -->
+<section class="slide" data-block="Cierre">
+  <p class="eyebrow">Cierre</p>
+  <p class="statement">Sabes dirigir el modelo para examinar tu tesis y para buscar pistas de evidencia. Sabes qué reservas para ti: abrir la fuente y decidir si respalda el argumento.</p>
+  <div style="margin-top:calc(var(--u)*22)">
+    <p class="eyebrow" style="margin-bottom:calc(var(--u)*10)">Antes de IA-3</p>
+    <ul class="plain body">
+      <li><b>Jueves 10, una sola tarea de U-Cursos:</b> Plantilla de planificación y Declaración 1.</li>
+      <li>Verifica cada fuente con la guía:<br><span class="mono" style="font-size:calc(var(--u)*20)">rubendaza.github.io/in3143-ia/plantillas/verificacion-de-fuente.html</span></li>
+      <li>Crea tu proyecto persistente con la guía de U-Cursos. IA-3 parte con el proyecto armado.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="hud">
+  <span>IN3143 · IA-2 · <span id="block"></span></span>
+  <span id="counter"></span>
+</div>
+
+</div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>
