@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu proyecto persistente · IN3143</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 44rem; margin: 3rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.6; }
+  .curso { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin-top: 0.4rem; }
+  .sub { color: #555; margin-top: 0.3rem; }
+  .fecha { font-size: 0.9rem; color: #666; }
+  h2 { font-size: 1.05rem; margin-top: 2.4rem; padding-top: 0.5rem; border-top: 3px solid #b4432e; scroll-margin-top: 1rem; }
+  h3 { font-size: 1rem; margin: 1.6rem 0 0.3rem; scroll-margin-top: 1rem; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 0.85em; overflow-wrap: break-word; }
+  ul { padding-left: 1.2rem; }
+  ol { padding-left: 1.4rem; }
+  li { margin: 0.35rem 0; }
+  p { margin: 0.8rem 0; }
+  ul.docs li { margin: 0.55rem 0; }
+  .etiqueta { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 0.35rem; }
+  .fin { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 1.2rem; }
+
+  /* Índice de secciones */
+  nav.indice { margin: 2.2rem 0 0; padding: 0.6rem 0 0.2rem; border-top: 3px solid #b4432e; }
+  nav.indice ol { margin: 0.2rem 0 0; }
+  nav.indice li { margin: 0.2rem 0; }
+  nav.indice ul { list-style: none; padding-left: 0; margin: 0.25rem 0 0.4rem; font-size: 0.92rem; color: #666; }
+  nav.indice ul li { margin: 0.15rem 0; }
+  nav.indice ul li::before { content: "\2192\00a0"; color: #999; }
+
+  /* Bloques copiables literalmente */
+  pre.prompt { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: break-word; background: #f2f2f2; border: 1px solid #ccc; border-top: 3px solid #b4432e; border-radius: 3px; padding: 0.9rem 1rem; margin: 0 0 0.4rem; }
+  /* Convención de nombre */
+  pre.nombre { font-family: Menlo, Consolas, monospace; font-size: 0.85rem; white-space: pre-wrap; overflow-wrap: break-word; background: #f2f2f2; border: 1px solid #ccc; border-radius: 3px; padding: 0.6rem 1rem; margin: 0.8rem 0; }
+
+  /* Tabla de stacks */
+  .tabla { overflow-x: auto; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.82rem; }
+  th, td { border: 1px solid #ccc; padding: 0.4rem 0.5rem; vertical-align: top; text-align: left; overflow-wrap: break-word; }
+  th { background: #f2f2f2; font-size: 0.8rem; }
+  th:first-child, td:first-child { width: 18%; }
+
+  /* Subsecciones por stack: cada alumno lee solo una */
+  section.stack { border: 1px solid #ddd; border-top: 3px solid #999; border-radius: 3px; padding: 0.1rem 1.1rem 1rem; margin: 1.8rem 0; background: #fbfbfb; }
+  section.stack h3 { margin-top: 1.1rem; }
+  section.g { border-top-color: #86611c; }
+  section.c { border-top-color: #2e6e73; }
+  section.k { border-top-color: #6e6a8f; }
+  section.g h3 { color: #86611c; }
+  section.c h3 { color: #2e6e73; }
+  section.k h3 { color: #6e6a8f; }
+
+  footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #777; }
+  a { color: #1a1a1a; }
+
+  @media (max-width: 32rem) {
+    body { margin: 1.5rem auto; padding: 0 1rem; }
+    pre.prompt { font-size: 0.76rem; padding: 0.7rem 0.75rem; }
+    pre.nombre { padding: 0.6rem 0.75rem; }
+    section.stack { padding: 0.1rem 0.8rem 0.8rem; }
+    table { font-size: 0.76rem; }
+    th, td { padding: 0.3rem 0.35rem; }
+    th:first-child, td:first-child { width: 16%; }
+  }
+  @media print {
+    body { margin: 1rem auto; }
+    pre.prompt, pre.nombre { background: none; }
+    section.stack { background: none; break-inside: avoid; }
+    nav.indice { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<p class="curso">IN3143 · parte de IA · guía de configuración</p>
+<h1>Tu proyecto persistente</h1>
+<p class="sub">IN3143 Escritura académica para las ingenierías y las ciencias, 2026-2. Parte de IA.</p>
+
+<p>Se hace una vez, fuera de clase, y sirve el resto del semestre. Tiempo estimado: 20 minutos. Tiene que estar listo antes de la próxima sesión de IA; la fecha está en U-Cursos.</p>
+
+<p class="fecha">Última verificación de estos pasos: 3 de septiembre de 2026.</p>
+
+<nav class="indice" aria-label="Contenido">
+<p class="etiqueta">Contenido</p>
+<ol>
+  <li><a href="#s1-que-es">Qué es y para qué sirve</a></li>
+  <li><a href="#s2-stack">Qué stack te conviene</a></li>
+  <li><a href="#s3-instrucciones">Instrucciones por stack</a>
+    <ul>
+      <li><a href="#s3-google">Stack Google</a></li>
+      <li><a href="#s3-chatgpt">Stack ChatGPT</a></li>
+      <li><a href="#s3-claude">Stack Claude</a></li>
+      <li><a href="#s3-otros-lugares">El proyecto no es el único lugar donde trabajas</a></li>
+    </ul>
+  </li>
+  <li><a href="#s4-prueba">Prueba de funcionamiento</a></li>
+  <li><a href="#s5-mantencion">Qué cargas y cómo lo mantienes</a></li>
+  <li><a href="#s6-problemas">Si algo no funciona</a></li>
+</ol>
+</nav>
+
+<h2 id="s1-que-es">1. Qué es y para qué sirve</h2>
+
+<p>Durante el semestre vas a producir un ensayo en varias etapas, y en cada una vas a trabajar con un modelo de lenguaje: examinar tu tema, buscar y verificar fuentes, diagnosticar tu borrador, decidir qué corregir. Si cada una de esas conversaciones ocurre en una ventana nueva, sin rastro de las anteriores, vas a pasar el semestre reexplicando de qué se trata tu ensayo y el modelo va a trabajar con información parcial cada vez.</p>
+
+<p>El proyecto persistente resuelve eso. Es un espacio único, dentro de la herramienta que uses, donde cargas los materiales de tu ensayo: el programa del curso, la rúbrica, las fuentes que vayas verificando, tu outline, tus borradores. Todo lo que converses ahí adentro ocurre con esos materiales a la vista del modelo. Según la herramienta se llama notebook, Gem, proyecto o project, pero la idea es la misma.</p>
+
+<p>Conviene tener clara una regla desde el principio, porque cambia cómo trabajas. <strong>Lo que el proyecto comparte de manera confiable entre conversaciones son los documentos cargados.</strong> Algunas herramientas arrastran además algo del historial de chats, y cuánto arrastran cambia con cada actualización, así que no es algo sobre lo que puedas construir un semestre de trabajo. Si algo que descubriste conversando importa para más adelante —una objeción a tu tesis, una fuente que descartaste y por qué, una decisión de estructura— no basta con haberlo conversado: escríbelo en tu documento de trabajo y vuelve a subirlo al proyecto. La sección 5 dice cuáles son esos documentos.</p>
+
+<h2 id="s2-stack">2. Qué stack te conviene</h2>
+
+<p>El curso trabaja con tres stacks, es decir tres conjuntos de herramientas de una misma empresa: Google, ChatGPT y Claude. Los tres funcionan con una cuenta tuya, gratuita o pagada, y con cualquiera de los tres puedes hacer todas las actividades del semestre. No hay uno oficial ni uno preferido.</p>
+
+<p>El criterio para elegir es dónde ya tienes cuenta y costumbre de uso. Si ocupas ChatGPT todos los días, quédate en ChatGPT. Si nunca has usado ninguno, el stack Google es el de menor fricción: funciona con una cuenta Google personal gratuita.</p>
+
+<div class="tabla">
+<table>
+<thead>
+<tr><th>Stack</th><th>Dónde vive tu proyecto persistente</th><th>Cuenta que necesitas</th></tr>
+</thead>
+<tbody>
+<tr><td>Google</td><td>Notebook en Gemini Notebook</td><td>Cuenta Google personal</td></tr>
+<tr><td>ChatGPT</td><td>Proyecto en Projects</td><td>Cuenta ChatGPT, gratuita o pagada</td></tr>
+<tr><td>Claude</td><td>Proyecto en Projects</td><td>Cuenta Claude, gratuita o pagada</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Sobre las versiones gratuitas: en los tres alcanzan para el curso. Los tres limitan cuánto material puedes tener cargado y cuánto puedes conversar dentro de un rango de horas, con topes distintos que además cambian seguido; el detalle que te toca aparece en las instrucciones de tu stack. En los tres, la cantidad de material cargado consume tu cuota, y de ahí sale la recomendación de la sección 5: mantén pocos documentos y actualízalos, en vez de subir un archivo por cada cosa que produzcas.</p>
+
+<p>Si pagas una suscripción vas a tener más margen y respuestas más rápidas. Ninguna evaluación del curso lo considera: lo que se califica es el criterio con que usas la herramienta y lo que puedes mostrar de lo que hiciste.</p>
+
+<p>Una nota sobre qué subes y dónde. Tu ensayo y tus fuentes son material académico tuyo y puedes subirlos sin problema. Como vas a trabajar en una cuenta personal, no subas material de terceros con datos sensibles, trabajos de compañeros, ni documentos internos de empresas donde hayas hecho práctica.</p>
+
+<h2 id="s3-instrucciones">3. Instrucciones por stack</h2>
+
+<p>En los tres stacks vas a hacer lo mismo: crear el espacio, ponerle el nombre acordado, pegar un texto de instrucciones y cargar el programa del curso. La convención de nombre es:</p>
+
+<pre class="nombre">IN3143 - [tu apellido]</pre>
+
+<p>Por ejemplo, <code>IN3143 - Fernández</code>. Usa exactamente ese formato.</p>
+
+<p>Antes de empezar, descarga a tu computador el archivo del programa del curso desde U-Cursos. Sirve tal como esté, en Word o en PDF. Ese archivo es el primer material que vas a cargar y también el insumo de la prueba de funcionamiento de la sección 4.</p>
+
+<p>Los nombres de menús y botones cambian con las actualizaciones de cada herramienta, y cambian seguido. Si un nombre exacto no calza con lo que ves en pantalla, busca la opción equivalente.</p>
+
+<p>Este es el texto de instrucciones que vas a ocupar en los pasos siguientes:</p>
+
+<p class="etiqueta">Inicio del bloque a copiar</p>
+<pre class="prompt">Asistes a un estudiante de cuarto año de ingeniería que escribe un ensayo académico para el curso IN3143 de la Universidad de Chile. Trabajas siempre a partir de los documentos cargados en este espacio. Cuando afirmes algo que provenga de esos documentos, indica de cuál. Cuando no tengas respaldo en ellos, dilo explícitamente en vez de completar con conocimiento general.</pre>
+<p class="fin">Fin del bloque a copiar</p>
+
+<section class="stack g">
+<h3 id="s3-google">Stack Google</h3>
+
+<p>El producto se llama <strong>Gemini Notebook</strong>. Hasta julio de 2026 se llamaba NotebookLM, así que vas a encontrar tutoriales y videos con el nombre viejo; es la misma herramienta. La dirección es <code>notebook.google.com</code>, y <code>notebooklm.google.com</code> sigue redirigiendo ahí.</p>
+
+<ol>
+  <li>Entra a <code>notebook.google.com</code> con tu cuenta Google.</li>
+  <li>Verifica arriba a la derecha cuál es la cuenta activa. Si tienes varias sesiones abiertas en el navegador, es fácil terminar creando el notebook en una cuenta que después no vas a ocupar. Anota cuál elegiste.</li>
+  <li>Crea un notebook nuevo desde la pantalla inicial. La herramienta te va a pedir subir una fuente antes de dejarte entrar al notebook.</li>
+  <li>Sube el archivo del programa como esa primera fuente. Espera a que termine de procesarse: cuando aparezca listado al costado con su resumen, está listo.</li>
+  <li>Renombra el notebook. El nombre se cambia desde el listado de notebooks, en el menú de tres puntos del notebook, con la opción de renombrar. Ponle <code>IN3143 - [tu apellido]</code>. Lo que se edita desde adentro del notebook, haciendo clic sobre el ícono del encabezado, es el emoji y no el título.</li>
+  <li>Pega el texto de instrucciones. Dentro del notebook, en el menú de tres puntos, busca la configuración del notebook. Si no encuentras esa opción, en el panel de chat busca la configuración de la conversación y usa el estilo personalizado, que recibe texto libre.</li>
+</ol>
+
+<p>Un notebook alcanza para todo el curso. Tu cuota de uso se renueva cada pocas horas, con un tope semanal, y se consume más rápido mientras más fuentes tengas cargadas y más larga sea la conversación. Por eso no abras un notebook por cada tarea.</p>
+
+<p>El chat del notebook responde solo desde las fuentes que cargaste: no busca en internet. Para buscar fuentes ocupas Google Scholar, SciELO y la biblioteca, como indica la <a href="../plantillas/verificacion-de-fuente.html">guía de verificación de fuentes</a>; el notebook sirve para trabajar sobre lo que ya verificaste.</p>
+
+<p>Gemini tiene además los Gems, que sirven para conversaciones más abiertas que las del notebook. Son opcionales y el curso no los necesita.</p>
+</section>
+
+<section class="stack c">
+<h3 id="s3-chatgpt">Stack ChatGPT</h3>
+
+<ol>
+  <li>Entra a <code>chatgpt.com</code> con tu cuenta.</li>
+  <li>En el menú lateral, busca la opción para crear un proyecto nuevo.</li>
+  <li>Nómbralo <code>IN3143 - [tu apellido]</code>.</li>
+  <li>Pega el texto de instrucciones en las instrucciones del proyecto.</li>
+  <li>Sube el archivo del programa a los archivos del proyecto.</li>
+  <li>Abre una conversación dentro del proyecto. Si abres una ventana suelta desde la pantalla de inicio, esa conversación queda fuera del proyecto y no ve los archivos que cargaste.</li>
+</ol>
+
+<p>Con cuenta gratuita tienes cinco archivos por proyecto. Es poco para un semestre completo, así que decide qué va en cada uno de esos cinco lugares en vez de llenarlos con lo primero que produzcas. La sección 5 dice cómo.</p>
+</section>
+
+<section class="stack k">
+<h3 id="s3-claude">Stack Claude</h3>
+
+<ol>
+  <li>Entra a <code>claude.ai</code> con tu cuenta.</li>
+  <li>En la barra lateral, busca la sección de Projects y crea uno nuevo.</li>
+  <li>Nómbralo <code>IN3143 - [tu apellido]</code>.</li>
+  <li>Busca el campo de instrucciones del proyecto, que está separado de los archivos, y pega ahí el texto de instrucciones. Guarda.</li>
+  <li>En el conocimiento del proyecto, sube el archivo del programa.</li>
+  <li>Abre una conversación dentro del proyecto. Si abres una ventana suelta desde la pantalla de inicio, esa conversación queda fuera del proyecto y no ve los archivos que cargaste.</li>
+</ol>
+
+<p>Con cuenta gratuita tienes hasta cinco proyectos. Cargar muchos documentos largos consume cuota rápido y puede dejarte sin margen a mitad de una sesión de trabajo.</p>
+</section>
+
+<h3 id="s3-otros-lugares">El proyecto no es el único lugar donde trabajas</h3>
+
+<p>No todo el trabajo del curso ocurre dentro del proyecto. Los prompts del kit se pegan en un chat nuevo y sin configuración previa, porque están escritos para funcionar solos y las instrucciones del proyecto interfieren con ellos: esas instrucciones le piden al modelo trabajar únicamente desde los documentos cargados, y examinar una tesis o explorar familias de evidencia necesita justamente lo contrario.</p>
+
+<p>La regla es esta: lo que se apoya en tu material —revisar tu outline, contrastar tu borrador con la rúbrica, retomar lo que decidiste antes— va dentro del proyecto. Los prompts del kit van en un chat nuevo, y lo que resulte de ellos lo guardas en tus documentos de trabajo.</p>
+
+<h2 id="s4-prueba">4. Prueba de funcionamiento</h2>
+
+<p>Esta prueba es la misma para los tres stacks y toma tres minutos. Comprueba dos cosas distintas: que la herramienta está leyendo el documento que subiste, y que las instrucciones que pegaste quedaron activas.</p>
+
+<h3 id="s4-paso1">Paso 1: pregunta con respuesta verificable</h3>
+
+<p>Con el programa ya cargado, escribe exactamente esto:</p>
+
+<p class="etiqueta">Inicio del bloque a copiar</p>
+<pre class="prompt">Según el programa que subí, ¿cuáles son los ítems con que se calcula la nota del curso y qué porcentaje tiene cada uno? Enumera cada ítem con su porcentaje e indica en qué parte del documento aparece esa información. Si algún porcentaje no está en el documento, dilo en vez de estimarlo.</pre>
+<p class="fin">Fin del bloque a copiar</p>
+
+<p>Abre el programa en paralelo y comprueba ítem por ítem. La prueba está aprobada si cada ítem que la herramienta enumera aparece en el programa con ese mismo porcentaje, y si la herramienta señala en qué parte del documento lo encontró. No uses la suma como criterio: el programa presenta los porcentajes en más de un lugar y hay ítems que se pueden desagregar o no. Lo que se comprueba aquí es que los datos vengan del documento.</p>
+
+<p>Está reprobada si la herramienta responde con generalidades sobre cómo suelen evaluarse los cursos, si entrega porcentajes que no están en el documento, o si dice que no tiene acceso a ningún archivo. Cualquiera de esas tres respuestas significa que el archivo no quedó bien cargado.</p>
+
+<h3 id="s4-paso2">Paso 2: pregunta sin respuesta en el documento</h3>
+
+<p>En la misma conversación, escribe:</p>
+
+<p class="etiqueta">Inicio del bloque a copiar</p>
+<pre class="prompt">Según el mismo documento, ¿cuál es la nota mínima de aprobación de los laboratorios del curso?</pre>
+<p class="fin">Fin del bloque a copiar</p>
+
+<p>El programa no contiene esa información, porque el curso no tiene laboratorios. La respuesta correcta dice que el documento no menciona laboratorios ni una nota asociada a ellos. Si en cambio la herramienta entrega una cifra, lo más probable es que el texto de instrucciones no haya quedado guardado: vuelve al paso donde lo pegaste, revisa que esté ahí y repite la prueba en una conversación nueva. En el stack Google este paso se aprueba casi siempre, porque el chat del notebook solo responde desde las fuentes cargadas.</p>
+
+<h3 id="s4-paso3">Paso 3: guarda el resultado</h3>
+
+<p>Toma una captura de pantalla de las dos respuestas, o copia el texto completo de ambas en un documento aparte. Anota también qué stack usaste y si tu cuenta es gratuita o pagada. Guarda ese registro: lo vas a ocupar en la próxima sesión de IA, y es material citable para la parte 2 de una declaración de uso de IA.</p>
+
+<h2 id="s5-mantencion">5. Qué cargas y cómo lo mantienes</h2>
+
+<p>El primer documento es el programa del curso. De ahí en adelante el proyecto tiene que reflejar el estado actual de tu trabajo, y la forma de lograrlo no es subir un archivo por cada cosa que produces: los tres stacks gratuitos ponen un techo a cuánto material puedes tener cargado, y ese techo llega antes de lo que uno espera. La forma de trabajar dentro de él es mantener pocos documentos y actualizarlos.</p>
+
+<p>En la práctica son tres documentos, y viven en tu computador o en tu Drive, no dentro de la herramienta: ahí los editas y desde ahí los vuelves a subir cuando cambian.</p>
+
+<ul class="docs">
+  <li><strong>Fuentes verificadas.</strong> Una entrada por cada referencia que revisaste: la referencia completa, qué comprobaste al abrirla y qué encontraste, incluidas las que descartaste. Es lo mismo que te pide anotar la <a href="../plantillas/verificacion-de-fuente.html">guía de verificación de fuentes</a>.</li>
+  <li><strong>Documento de trabajo de la etapa en curso.</strong> Lo que decidiste y por qué: la formulación de tu tesis y las objeciones que le encontraste, tus argumentos, la estructura, lo que cambiaste después de una conversación. Este es el documento que hace que el proyecto sepa lo que tú ya sabes.</li>
+  <li><strong>Versión vigente de tu ensayo.</strong> Solo la última.</li>
+</ul>
+
+<p>Cuando actualices uno, súbelo de nuevo y elimina la copia anterior <strong>del proyecto</strong>; en tu computador quédate con todas las versiones. Un proyecto con tres archivos al día es más útil que uno con quince donde no se sabe cuál es el vigente.</p>
+
+<p>Guarda aparte, fuera de la herramienta, tus prompts y las respuestas completas que te resultaron útiles. Ese es el insumo de las declaraciones de uso de IA, que piden citas textuales, y no conviene depender de encontrarlo en el historial semanas después.</p>
+
+<h2 id="s6-problemas">6. Si algo no funciona</h2>
+
+<p>Resuélvelo antes de la clase, no en la clase. El orden es este.</p>
+
+<p>Si el Paso 1 de la prueba falla en el stack que elegiste, revisa primero lo obvio: que la cuenta activa sea la que corresponde, que el archivo terminó de procesarse, y que estás escribiendo dentro del proyecto y no en una ventana suelta. Casi siempre es una de esas tres.</p>
+
+<p>Si después de eso sigue fallando, o si no tienes cuenta en ninguno de los tres stacks, configura completo el stack Google con una cuenta Google personal y repite la prueba: se abre en menos de cinco minutos, sin tarjeta y sin pago. Puedes volver a tu stack preferido más adelante, cuando tengas tiempo de averiguar qué fallaba.</p>
+
+<p>Si el problema persiste después de intentar todo esto, escríbeme por el canal del curso con al menos dos días de anticipación a la sesión, indicando qué stack intentaste, en qué paso se cae y qué mensaje aparece en pantalla. Con esa información alcanza a resolverse por correo.</p>
+
+<p>En clase hay unos pocos minutos destinados a resolver configuraciones que quedaron a medias, mientras el resto de la sala avanza. Alcanzan para un problema identificado, del tipo "configuré el notebook, subí el archivo y la herramienta responde que no tiene acceso a ninguna fuente". No alcanzan para empezar la configuración desde cero.</p>
+
+<footer><a href="../index.html">Volver a la portada</a></footer>
+
+</body>
+</html>
