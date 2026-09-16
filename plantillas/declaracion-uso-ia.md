@@ -8,9 +8,9 @@ Escribe directamente en los recuadros punteados. Responde en base al trabajo que
 
 Completa el párrafo con tus datos y borra los corchetes.
 
-> En la elaboración de la planificación de mi ensayo se utilizaron herramientas de inteligencia artificial generativa. [Nombre y versión de la herramienta o las herramientas: por ejemplo ChatGPT, Claude, Gemini.] Estas fueron empleadas en [etapas de la planificación en que las usaste: examen de la tesis, generación de argumentos, búsqueda de términos para localizar fuentes, revisión de redacción]. [Una oración con el propósito: qué buscabas obtener.] Todo el contenido fue revisado y validado por el autor/autora, quien asume plena responsabilidad sobre el trabajo presentado.
+> En la elaboración de la planificación de mi ensayo se utilizaron herramientas de inteligencia artificial generativa. [Nombre y versión de la herramienta o las herramientas: por ejemplo ChatGPT, Claude, Gemini.] Estas fueron empleadas en [etapas de la planificación: examen de la tesis, generación de argumentos, búsqueda de términos para localizar fuentes, revisión de redacción]. [Una oración con el propósito: qué buscabas obtener.] Todo el contenido fue revisado y validado por el autor/autora, quien asume plena responsabilidad sobre el trabajo presentado.
 
-Preguntas guía: ¿qué herramienta abriste y en qué cuenta? ¿En qué momentos de la planificación la usaste? ¿Para qué la abriste esa vez?
+¿Qué herramienta abriste y en qué cuenta? ¿En qué momentos de la planificación la usaste? ¿Para qué la abriste esa vez?
 
 ---
 
@@ -35,13 +35,13 @@ Debajo pega **un fragmento** de lo que respondió el modelo. Elige el fragmento 
 Una respuesta por pregunta.
 
 **a) ¿Cómo lo usaste?**
-Qué le pediste y qué hiciste tú con lo que salió. Preguntas guía: ¿qué parte de la planificación salió de tu cabeza y cuál del chat? ¿Reescribiste lo que te dio o lo copiaste?
+Qué le pediste y qué hiciste tú con lo que salió. ¿Qué parte de la planificación salió de tu cabeza y cuál del chat? ¿Reescribiste lo que te dio o lo copiaste?
 
 **b) ¿Cómo verificaste lo que te dio?**
-Qué abriste y qué comprobaste. Preguntas guía: ¿qué fuente abriste, dónde la buscaste y qué encontraste al abrirla? ¿Qué cifra o afirmación contrastaste, y contra qué?
+Qué abriste y qué comprobaste. ¿Qué fuente abriste, dónde la buscaste y qué encontraste al abrirla? ¿Qué cifra o afirmación contrastaste, y contra qué?
 
 **c) ¿Qué descartaste o cambiaste de lo que te propuso, y por qué?**
-Al menos una cosa concreta que rechazaste. Preguntas guía: ¿qué argumento, fuente o formulación no usaste? ¿Con qué criterio decidiste que no servía?
+Al menos una cosa concreta que rechazaste. ¿Qué argumento, fuente o formulación no usaste? ¿Con qué criterio decidiste que no servía?
 
 ---
 
