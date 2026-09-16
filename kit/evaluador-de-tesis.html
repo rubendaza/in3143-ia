@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluador de tesis · IN3143</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 44rem; margin: 3rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.6; }
+  .curso { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin-top: 0.4rem; }
+  h2 { font-size: 1.05rem; margin-top: 2.2rem; padding-top: 0.5rem; }
+  h2.acento { border-top: 3px solid #2e6e73; }
+  h2.plain { border-top: 1px solid #ddd; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 0.85em; }
+  ul { padding-left: 1.2rem; }
+  li { margin: 0.35rem 0; }
+  p { margin: 0.8rem 0; }
+  ul.ficha { list-style: none; padding-left: 0; }
+  ul.ficha li { margin: 0.3rem 0; }
+  .etiqueta { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 0.35rem; }
+  pre.prompt { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: break-word; background: #f2f2f2; border: 1px solid #ccc; border-top: 3px solid #2e6e73; border-radius: 3px; padding: 0.9rem 1rem; margin: 0 0 0.4rem; }
+  .fin { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 1.2rem; }
+  footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #777; }
+  a { color: #1a1a1a; }
+  @media (max-width: 32rem) {
+    body { margin: 1.5rem auto; padding: 0 1rem; }
+    pre.prompt { font-size: 0.76rem; padding: 0.7rem 0.75rem; }
+  }
+  @media print { body { margin: 1rem auto; } pre.prompt { background: none; } }
+</style>
+</head>
+<body>
+
+<p class="curso">IN3143 · parte de IA · kit de prompts · sesión IA-2</p>
+<h1>Evaluador de tesis</h1>
+
+<ul class="ficha">
+  <li><strong>Para qué sirve</strong>: audita una fila de la Hoja de sesión y dicta un veredicto de tres líneas sobre la tesis, la objeción y la decisión.</li>
+  <li><strong>Cuándo se usa</strong>: IA-2, revisión en conjunto del minuto 44, proyectado; también lo puedes correr tú por tu cuenta.</li>
+  <li><strong>Qué pegas</strong>: los tres campos de una fila de la Hoja de sesión: Tesis v1, Objeción más fuerte y Decisión.</li>
+  <li><strong>Qué obtienes</strong>: tres líneas con etiquetas fijas, que la sala audita en voz alta.</li>
+</ul>
+
+<p>Este prompt se pega en un chat nuevo y gratuito (ChatGPT, Claude o Gemini), sin proyecto ni configuración previa: primero va el prompt completo, y tu material va debajo de la línea <code>---</code>, en el lugar marcado con <code>[pega aquí ...]</code>.</p>
+
+<h2 class="acento">El prompt</h2>
+<p class="etiqueta">Inicio del bloque a copiar</p>
+<pre class="prompt">Eres evaluador de un ejercicio universitario de planificación de un ensayo académico.
+Un estudiante registró tres campos: su tesis, la objeción más fuerte que le encontró,
+y su decisión de mantenerla o ajustarla con la razón de esa decisión.
+
+Evalúa la fila que te voy a pegar aplicando estos tres juicios:
+1. ¿La tesis es discutible?
+2. ¿La objeción registrada es la más fuerte contra esa tesis, o existe una más fuerte?
+3. ¿La decisión está justificada por la objeción registrada?
+
+Reglas:
+- No propongas una tesis nueva ni reformules la del estudiante.
+- No corrijas la redacción, la ortografía ni el estilo.
+- No propongas fuentes, autores ni referencias.
+- Si la tesis es defendible aunque tú habrías elegido otra, dilo de forma explícita.
+- Nada de elogios, preámbulos ni cierres.
+
+Formato de salida, sin agregar nada:
+TESIS: [sí / parcialmente / no] + una línea
+OBJECIÓN: [es la más fuerte / hay una más fuerte: ...] + una línea
+DECISIÓN: [sí / no] + una línea
+
+---
+Fila a evaluar:
+TESIS V1: [pega aquí]
+OBJECIÓN MÁS FUERTE: [pega aquí]
+DECISIÓN: [pega aquí]</pre>
+<p class="fin">Fin del bloque a copiar</p>
+
+<h2 class="plain">Qué hacer con la respuesta</h2>
+<ul>
+  <li>El veredicto se audita antes de aceptarlo: revisa si la objeción que propone como "más fuerte" ataca la tesis o ataca otra cosa.</li>
+  <li>Si el evaluador exige más de lo que pide la consigna, eso se dice en voz alta y queda como observación de la sesión.</li>
+  <li>Nada de lo que dicte el evaluador reemplaza tu columna <strong>Decisión</strong>: esa la escribes tú.</li>
+</ul>
+
+<h2 class="plain">Límites en cuenta gratuita</h2>
+<p>Corre en un chat nuevo sin proyecto. Con varias filas seguidas en la misma conversación tiende a arrastrar la fila anterior; abre un chat por fila cuando el veredicto se proyecte.</p>
+
+<footer><a href="index.html">Volver al kit de prompts</a></footer>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Examinador de tesis · IN3143</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 44rem; margin: 3rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.6; }
+  .curso { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin-top: 0.4rem; }
+  h2 { font-size: 1.05rem; margin-top: 2.2rem; padding-top: 0.5rem; }
+  h2.acento { border-top: 3px solid #b4432e; }
+  h2.plain { border-top: 1px solid #ddd; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 0.85em; }
+  ul { padding-left: 1.2rem; }
+  li { margin: 0.35rem 0; }
+  p { margin: 0.8rem 0; }
+  ul.ficha { list-style: none; padding-left: 0; }
+  ul.ficha li { margin: 0.3rem 0; }
+  .etiqueta { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 0.35rem; }
+  pre.prompt { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: break-word; background: #f2f2f2; border: 1px solid #ccc; border-top: 3px solid #b4432e; border-radius: 3px; padding: 0.9rem 1rem; margin: 0 0 0.4rem; }
+  .fin { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 1.2rem; }
+  footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #777; }
+  a { color: #1a1a1a; }
+  @media (max-width: 32rem) {
+    body { margin: 1.5rem auto; padding: 0 1rem; }
+    pre.prompt { font-size: 0.76rem; padding: 0.7rem 0.75rem; }
+  }
+  @media print { body { margin: 1rem auto; } pre.prompt { background: none; } }
+</style>
+</head>
+<body>
+
+<p class="curso">IN3143 · parte de IA · kit de prompts · sesión IA-2</p>
+<h1>Examinador de tesis</h1>
+
+<ul class="ficha">
+  <li><strong>Para qué sirve</strong>: somete tu tesis a tres pruebas y te devuelve la objeción más fuerte que existe contra ella.</li>
+  <li><strong>Cuándo se usa</strong>: IA-2, trabajo individual del minuto 20, antes de cerrar la Plantilla de planificación.</li>
+  <li><strong>Qué pegas</strong>: tu problemática y tu tesis. Si todavía no tienes tesis redactada, pega el tema y tu postura tentativa.</li>
+  <li><strong>Qué obtienes</strong>: cinco campos con etiquetas fijas; dos de ellos se copian a la Hoja de sesión.</li>
+</ul>
+
+<p>Este prompt se pega en un chat nuevo y gratuito (ChatGPT, Claude o Gemini), sin proyecto ni configuración previa: primero va el prompt completo, y tu material va debajo de la línea <code>---</code>, en el lugar marcado con <code>[pega aquí ...]</code>.</p>
+
+<h2 class="acento">El prompt</h2>
+<p class="etiqueta">Inicio del bloque a copiar</p>
+<pre class="prompt">Eres examinador de tesis de ensayo académico en un curso universitario de escritura.
+Tu tarea es someter una tesis a prueba y reportar dónde cede. Omite el acompañamiento y el estímulo.
+
+Recibes un texto que puede venir en dos formas:
+(A) una problemática y una tesis ya redactada;
+(B) un tema y una postura tentativa, sin tesis redactada.
+Si recibes la forma B, primero formula UNA tesis candidata de una sola oración,
+declárala bajo la etiqueta TESIS CANDIDATA y examina esa. Si recibes la forma A,
+transcribe la tesis del estudiante bajo esa misma etiqueta, sin cambiarle palabras.
+
+Luego aplica exactamente estas tres pruebas:
+1. ¿La tesis es discutible o es una constatación que nadie disputaría?
+2. ¿Qué tendría que ser cierto para que la tesis se sostenga? Nombra dos o tres supuestos.
+3. ¿Cuál es la postura contraria más fuerte que un lector informado podría defender?
+
+Reglas:
+- Prohibido elogiar, felicitar o valorar el esfuerzo. Cero preámbulo y cero cierre.
+- Prohibido reescribir la tesis por el estudiante. Puedes proponer un ajuste en una línea
+  bajo la etiqueta SUGERENCIA, y esa línea es opcional para él.
+- Prohibido proponer fuentes, autores, referencias o bibliografía.
+
+Formato de salida, sin agregar nada:
+TESIS CANDIDATA: [una oración]
+DISCUTIBLE: sí / parcialmente / no + una línea
+SUPUESTOS: [dos o tres, uno por línea, cada uno de una línea]
+OBJECIÓN MÁS FUERTE: [una o dos líneas]
+SUGERENCIA (opcional): [una línea]
+
+---
+[pega aquí tu problemática y tu tesis, o tu tema y tu postura tentativa]</pre>
+<p class="fin">Fin del bloque a copiar</p>
+
+<h2 class="plain">Qué hacer con la respuesta</h2>
+<ul>
+  <li>Copia la línea TESIS CANDIDATA a la columna <strong>Tesis v1</strong> de la Hoja de sesión, y OBJECIÓN MÁS FUERTE a la columna <strong>Objeción más fuerte</strong>.</li>
+  <li>Lee los supuestos y marca cuáles podrías respaldar con una fuente. Los que no puedas respaldar acotan tu tesis.</li>
+  <li>La decisión de mantener o ajustar la tesis la tomas tú y la escribes con tus palabras en la columna <strong>Decisión</strong>. Si ajustas, esa versión es la que le llevas a la profesora.</li>
+  <li>Si el modelo te devuelve elogios o una tesis reescrita, responde "reformula respetando el formato" y vuelve a pedirla.</li>
+</ul>
+
+<h2 class="plain">Límites en cuenta gratuita</h2>
+<p>Funciona en un chat nuevo de ChatGPT, Claude o Gemini sin proyecto ni configuración previa. Si el modelo pierde el formato después de varios turnos, abre un chat nuevo y pega el prompt de nuevo.</p>
+
+<footer><a href="index.html">Volver al kit de prompts</a></footer>
+
+</body>
+</html>

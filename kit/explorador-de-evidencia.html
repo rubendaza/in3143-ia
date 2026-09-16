@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorador de evidencia · IN3143</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 44rem; margin: 3rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.6; }
+  .curso { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin-top: 0.4rem; }
+  h2 { font-size: 1.05rem; margin-top: 2.2rem; padding-top: 0.5rem; }
+  h2.acento { border-top: 3px solid #86611c; }
+  h2.plain { border-top: 1px solid #ddd; }
+  code { font-family: Menlo, Consolas, monospace; font-size: 0.85em; }
+  ul { padding-left: 1.2rem; }
+  li { margin: 0.35rem 0; }
+  p { margin: 0.8rem 0; }
+  ul.ficha { list-style: none; padding-left: 0; }
+  ul.ficha li { margin: 0.3rem 0; }
+  .etiqueta { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 0.35rem; }
+  pre.prompt { font-family: Menlo, Consolas, monospace; font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: break-word; background: #f2f2f2; border: 1px solid #ccc; border-top: 3px solid #86611c; border-radius: 3px; padding: 0.9rem 1rem; margin: 0 0 0.4rem; }
+  .fin { font-family: Menlo, Consolas, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin: 0 0 1.2rem; }
+  footer { margin-top: 3rem; padding-top: 0.8rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #777; }
+  a { color: #1a1a1a; }
+  @media (max-width: 32rem) {
+    body { margin: 1.5rem auto; padding: 0 1rem; }
+    pre.prompt { font-size: 0.76rem; padding: 0.7rem 0.75rem; }
+  }
+  @media print { body { margin: 1rem auto; } pre.prompt { background: none; } }
+</style>
+</head>
+<body>
+
+<p class="curso">IN3143 · parte de IA · kit de prompts · sesión IA-2</p>
+<h1>Explorador de evidencia</h1>
+
+<ul class="ficha">
+  <li><strong>Para qué sirve</strong>: convierte tu tesis en tres argumentos y te dice qué tipo de evidencia y qué términos de búsqueda necesita cada uno.</li>
+  <li><strong>Cuándo se usa</strong>: IA-2, trabajo individual del minuto 64, después de examinar la tesis.</li>
+  <li><strong>Qué pegas</strong>: tu tesis, en la versión v1 o en la versión ajustada.</li>
+  <li><strong>Qué obtienes</strong>: tres bloques con etiquetas fijas, sin ninguna referencia.</li>
+</ul>
+
+<p>Este prompt se pega en un chat nuevo y gratuito (ChatGPT, Claude o Gemini), sin proyecto ni configuración previa: primero va el prompt completo, y tu material va debajo de la línea <code>---</code>, en el lugar marcado con <code>[pega aquí ...]</code>.</p>
+
+<h2 class="acento">El prompt</h2>
+<p class="etiqueta">Inicio del bloque a copiar</p>
+<pre class="prompt">Eres asistente de planificación de un ensayo académico universitario.
+Recibes una tesis. Devuelves tres argumentos que podrían sostenerla y, para cada uno,
+qué familia de evidencia lo respaldaría y con qué términos se busca esa evidencia.
+
+Instrucciones:
+1. Formula tres argumentos distintos que sostengan la tesis. Cada argumento se explica
+   en dos o tres oraciones, en el nivel de detalle de un párrafo de desarrollo.
+2. A cada argumento asígnale UNA familia de fuente: artículo de investigación científica (AIC),
+   informe de organismo público o internacional, datos estadísticos oficiales, norma técnica,
+   documentación de la industria. Reparte así: dos argumentos con familia AIC y el tercero
+   con una familia distinta de las cinco.
+3. Para cada argumento entrega de 3 a 4 términos de búsqueda en español y los equivalentes
+   en inglés usados en la literatura del área, pensados para Google Scholar y SciELO.
+
+Prohibiciones, sin excepción:
+- No entregues citas, autores, títulos de artículos, años, revistas, DOI ni URL.
+- No inventes estudios ni describas hallazgos concretos atribuidos a alguien.
+- Si al redactar se te escapa cualquier referencia, bórrala y escribe [buscar] en su lugar.
+- Sin preámbulo, sin cierre y sin comentarios sobre la calidad de la tesis.
+
+Formato de salida, repetido tres veces y sin agregar nada:
+ARGUMENTO 1: [dos o tres oraciones]   (repite el bloque para 2 y 3)
+FAMILIA DE EVIDENCIA: [una sola familia]
+BÚSQUEDA (es): [3 a 4 términos separados por punto y coma]
+BÚSQUEDA (en): [3 a 4 términos separados por punto y coma]
+
+---
+[pega aquí tu tesis]</pre>
+<p class="fin">Fin del bloque a copiar</p>
+
+<h2 class="plain">Qué hacer con la respuesta</h2>
+<ul>
+  <li>Resume cada bloque en una línea con tres campos, <strong>argumento · familia de evidencia · términos de búsqueda</strong>, y cópiala a las columnas <strong>Argumento 1</strong>, <strong>2</strong> y <strong>3</strong> de la Hoja de sesión.</li>
+  <li>Los tres bloques son el borrador de los párrafos 1 a 3 de la Plantilla de planificación: cada párrafo lleva su argumento explicado y una fuente de respaldo.</li>
+  <li>Las fuentes las buscas tú con esos términos en Google Scholar, SciELO o la biblioteca de la U. de Chile, y las abres antes de citarlas. La Plantilla pide cuatro referencias APA y al menos tres AIC (artículo de investigación científica). Con dos argumentos respaldados por un AIC y el tercero por otra familia quedan tres referencias y dos AIC: la cuarta referencia también tiene que ser AIC, y puede ser un segundo respaldo de cualquiera de los tres argumentos.</li>
+  <li>Si el modelo igual te entrega un autor o un año, trátalo como dato no verificado y bórralo. La <a href="../plantillas/verificacion-de-fuente.html">guía de verificación de fuentes</a> indica qué comprobar en cada fuente que sí encuentres.</li>
+</ul>
+
+<h2 class="plain">Límites en cuenta gratuita</h2>
+<p>Un chat gratuito sin búsqueda activa responde desde memoria y ahí es donde aparecen las referencias inventadas. Por eso este prompt le prohíbe entregarlas.</p>
+
+<footer><a href="index.html">Volver al kit de prompts</a></footer>
+
+</body>
+</html>
